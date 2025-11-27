@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <title>EcoDesafios 🌱</title>
+  <link rel="stylesheet" href="EcoC.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+  <!-- Cabeçalho com logo e navegação -->
+  <header>
+    <div class="interface">
+      <div class="logo">
+        <h2>EcoWise 🌱</h2>
+      </div>
+      <nav class="menu-desktop">
+        <ul>
+          <li><a href="EcoMenu.html">Voltar</a></li>
+          <li><a href="EcoH.html">Sair</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+
+  <main class="eco-desafios">
+    <h2>🌿 EcoDesafios do Mês</h2>
+    <div class="semana-header">
+      <p id="tituloSemana">Semana 1: Iniciando a Jornada Verde</p>
+      <div class="progress-circle" id="progressCircle">
+        <span id="progressText">0%</span>
+      </div>
+    </div>
+
+    <form id="ecoChecklist" class="checklist-desafios"></form>
+
+    <div class="status-bar">
+      <p id="progresso">Progresso: 0/5 desafios concluídos ✅</p>
+      <button id="btnExportar" style="display: none;">📊 Ver Cronograma</button>
+    </div>
+
+    <section id="cronogramaDesafios" class="cronograma" style="display: none;">
+      <h3>📅 Cronograma de Desafios Sustentáveis</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>Semana</th>
+            <th>Tema</th>
+            <th>Desafios Concluídos</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody id="tabelaCronograma"></tbody>
+      </table>
+    </section>
+
+  </main>
+
+  <!-- Popup de conclusão -->
+  <div id="popupFofo" class="popup">
+    <div class="medalha">🏅</div>
+    <h3>Parabéns!</h3>
+    <p id="msgPopup">Você concluiu todos os desafios da semana! 🌎💚</p>
+    <button id="btnFecharPopup">Fechar</button>
+  </div>
+  <div id="overlayPopup" class="overlay"></div>
+
+
+
+
+
+  <script>
+    const semanas = [
+      [
+        "Reciclagem inteligente – separe o lixo por uma semana.",
+        "Desafio da água – reduza o tempo no banho em 2 minutos.",
+        "Economia de energia – desligue luzes e aparelhos não usados.",
+        "Transporte verde – caminhe ou use bicicleta 2 vezes.",
+        "Consumo consciente – substitua 2 produtos por versões sustentáveis."
+      ],
+      [
+        "Plante uma muda ou cuide de uma planta existente.",
+        "Desafio sem plástico – evite sacolas e copos descartáveis.",
+        "Use garrafa reutilizável durante toda a semana.",
+        "Faça uma refeição 100% vegetariana em um dia.",
+        "Compartilhe uma dica sustentável com um amigo."
+      ],
+      [
+        "Doe roupas ou objetos que não usa mais.",
+        "Evite comprar por impulso – reflita antes de cada compra.",
+        "Reduza o uso de papel: digitalize suas anotações.",
+        "Descarte corretamente pilhas e baterias.",
+        "Crie um cantinho verde com vasos ou temperos."
+      ],
+      [
+        "Passe um dia inteiro sem usar transporte motorizado.",
+        "Organize um mutirão de limpeza com amigos.",
+        "Reduza o consumo de carne nesta semana.",
+        "Reutilize água (ex: da chuva ou do enxágue de roupas).",
+        "Compartilhe sua jornada sustentável nas redes!"
+      ]
+    ];
+
+    let semanaAtual = 0;
+
+    const checklistForm = document.getElementById("ecoChecklist");
+    const progresso = document.getElementById("progresso");
+    const popup = document.getElementById("popupFofo");
+    const overlay = document.getElementById("overlayPopup");
+    const btnFechar = document.getElementById("btnFecharPopup");
+    const tituloSemana = document.getElementById("tituloSemana");
+    const msgPopup = document.getElementById("msgPopup");
+    const btnExportar = document.getElementById("btnExportar");
+    const progressCircle = document.getElementById("progressCircle");
+    const progressText = document.getElementById("progressText");
+
+    function obterTituloSemana(i) {
+      const titulos = [
+        "Iniciando a Jornada Verde ",
+        "Pequenas Ações, Grandes Mudanças ",
+        "Transformando Hábitos ",
+        "Cuidando do Planeta "
+      ];
+      return titulos[i];
+    }
+
+    function carregarSemana() {
+      checklistForm.innerHTML = "";
+      tituloSemana.textContent = `Semana ${semanaAtual + 1}: ${obterTituloSemana(semanaAtual)}`;
+      semanas[semanaAtual].forEach((texto, index) => {
+        const label = document.createElement("label");
+        label.innerHTML = `<input type="checkbox" data-index="${index}"> ${texto}`;
+        checklistForm.appendChild(label);
+      });
+      atualizarProgresso();
+    }
+
+    function atualizarProgresso() {
+      const checkboxes = checklistForm.querySelectorAll('input[type="checkbox"]');
+      const total = checkboxes.length;
+      const marcados = Array.from(checkboxes).filter(c => c.checked).length;
+
+      progresso.textContent = `Progresso: ${marcados}/${total} desafios concluídos ✅`;
+      const porcentagem = Math.round((marcados / total) * 100);
+      progressText.textContent = `${porcentagem}%`;
+      progressCircle.style.background = `conic-gradient(#66bb6a ${porcentagem * 3.6}deg, #c8e6c9 0deg)`;
+
+      if (marcados === total) {
+        popup.style.display = "block";
+        overlay.style.display = "block";
+        msgPopup.innerHTML = semanaAtual < semanas.length - 1
+          ? `🎉 Você concluiu todos os desafios da Semana ${semanaAtual + 1}!<br>Prepare-se para a próxima!`
+          : `🎉 Parabéns! Você completou o mês inteiro de desafios! 🌍💚`;
+        btnExportar.style.display = "inline-block";
+      }
+    }
+
+    checklistForm.addEventListener("change", atualizarProgresso);
+
+    btnFechar.addEventListener("click", () => {
+      popup.style.display = "none";
+      overlay.style.display = "none";
+      if (semanaAtual < semanas.length - 1) {
+        semanaAtual++;
+        carregarSemana();
+      }
+    });
+
+    overlay.addEventListener("click", () => {
+      popup.style.display = "none";
+      overlay.style.display = "none";
+    });
+
+    carregarSemana();
+
+
+    const tabelaCronograma = document.getElementById("tabelaCronograma");
+    const cronogramaDesafios = document.getElementById("cronogramaDesafios");
+
+    btnExportar.addEventListener("click", () => {
+      tabelaCronograma.innerHTML = "";
+      for (let i = 0; i < semanas.length; i++) {
+        const linha = document.createElement("tr");
+        const tema = obterTituloSemana(i);
+        const concluido = i < semanaAtual ? "5/5" : i === semanaAtual ? `${countChecked()}/5` : "0/5";
+        const status = i < semanaAtual
+          ? `<td class="status-ok">✔️ Concluído</td>`
+          : i === semanaAtual
+            ? `<td class="status-pendente">⏳ Em andamento</td>`
+            : `<td class="status-pendente">🔒 Não iniciado</td>`;
+
+        linha.innerHTML = `
+      <td>Semana ${i + 1}</td>
+      <td>${tema}</td>
+      <td>${concluido}</td>
+      ${status}
+    `;
+        tabelaCronograma.appendChild(linha);
+      }
+      cronogramaDesafios.style.display = "block";
+    });
+
+    function countChecked() {
+      const checkboxes = checklistForm.querySelectorAll('input[type="checkbox"]');
+      return Array.from(checkboxes).filter(c => c.checked).length;
+    }
+
+  </script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,1428 @@
+body {
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #4ed4b3;
+
+  header {
+    background: linear-gradient(to bottom, #5ae4c1dc, #0f9473);
+    /* de cima da tela inicial*/
+    padding: 1rem 0;
+  }
+
+  /**/
+  /**/
+  /**/
+  /**/
+  /**/
+  /**/
+  /**/
+  /**/
+  /* "EcoWise Início Sobre Login"*/
+  .interface {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0px;
+    padding: 20px 30px;
+    max-width: 1200px;
+  }
+
+  .logo h2 {
+    margin: 0;
+    /* Remove margens do texto */
+    font-size: 1.2rem;
+    /* Tamanho da fonte do texto */
+    color: rgb(23, 48, 18);
+    /* Cor do texto */
+    font-weight: 700;
+    letter-spacing: 0.5px;
+  }
+
+  .menu-desktop ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    gap: 30px;
+  }
+
+  .menu-desktop a {
+    color: rgb(23, 48, 18);
+    /* Cor do texto */
+    text-decoration: none;
+    font-weight: 630;
+    font-size: 1rem;
+    transition: color 0.3s ease;
+    position: relative;
+  }
+
+  .menu-desktop a:hover {
+    color: #ffffff;
+  }
+
+  .menu-desktop a::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0%;
+    height: 2px;
+    background-color: rgb(23, 48, 18);
+    transition: width 0.3s ease;
+  }
+
+  .menu-desktop a:hover::after {
+    width: 100%;
+  }
+
+  /**/
+  /**/
+  /**/
+  /**/
+  /**/
+  /**/
+  /**/
+  /**/
+  /* Tela de boas-vindas */
+  .intro-fullscreen {
+    text-align: center;
+    padding: 60px 30px;
+    background: linear-gradient(to bottom, #0f9473, #9df7d4);
+    /* Parte inicial maior */
+    color: rgb(23, 48, 18);
+    /* Letras "BEM VINDO BLABLABLA" */
+    border-radius: 0px 0px 500px 500px;
+    /* Superior-esquerdo, superior-direito, inferior-direito, inferior-esquerdo */
+    position: relative;
+    overflow: hidden;
+    /* evitar que o conteúdo transborde*/
+  }
+
+  h1 {
+    text-align: center;
+    margin-top: 10px;
+    /*Espaçamento acima do título*/
+    font-size: 1.8em;
+    /*Tamanho da fonte do título*/
+    font-weight: 700;
+  }
+
+  p {
+    margin: 30px 10px;
+    /*Espaçamento acima e abaixo do parágrafo*/
+    font-size: 1em;
+    /*Tamanho da fonte do parágrafo*/
+    line-height: 1.6;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /**/
+  /**/
+  /**/
+  /**/
+  /**/
+  /**/
+  /**/
+  /**/
+  /* Botão principal da tela inicial */
+  .btn-principal {
+    width: 160px;
+    height: 36px;
+    font-size: 0.9em;
+    background-color: #2e534d;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    justify-content: center;
+    /* Centraliza horizontalmente */
+    padding: 0;
+    margin-top: 40px;
+  }
+
+  .btn-principal:hover {
+    background-color: #5ea98c;
+    /* Cor de fundo ao passar o mouse */
+    transform: scale(1.05);
+    box-shadow: 0 0 10px #5ea98c;
+    transition: all 0.3s ease;
+  }
+
+  /**/
+  /**/
+  /**/
+  /**/
+  /**/
+  /**/
+  /**/
+  /**/
+  /* Bloco de caixa de informacoes */
+  section.informacoes .flex {
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    gap: 40px;
+    margin-top: 10px;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    flex-wrap: wrap;
+  }
+
+  section.informacoes .info-caixa {
+    flex: 1;
+    min-width: 200px;
+    max-width: 240px;
+    height: auto;
+    border-radius: 20px;
+    background: linear-gradient(to bottom right, #dcedc8, #a8e6cf);
+    padding: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+  }
+
+  section.informacoes .info-caixa:hover {
+    transform: scale(1.03);
+  }
+
+  section.informacoes .escrita {
+    text-align: center;
+    color: #1b5e20;
+    font-size: 1.2em;
+    font-weight: 700;
+    margin-bottom: 12px;
+    letter-spacing: 0.5px;
+  }
+
+  section.informacoes .descricaosuste,
+  section.informacoes .descricaocarbo,
+  section.informacoes .descricaomudan {
+    color: #2e7d32;
+    font-size: 1rem;
+    line-height: 1.5;
+    text-align: center;
+    max-width: 90%;
+    margin: 0 auto;
+    padding: 10px 0;
+  }
+
+  /**/
+  /**/
+  /**/
+  /**/
+  /**/
+  /**/
+  /**/
+  /**/
+  /*overlay de "sobre"*/
+  #modalSobre {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    /*centraliza a caixa no meio da tela*/
+    width: 80%;
+    /* largura da tela */
+    max-width: 500px;
+    /*largura maxima*/
+    max-height: 70vh;
+    /*altura máxima */
+    padding: 40px;
+    /*espaço interno ao redor do conteudo*/
+    background-color: #d0ede1;
+    /*fundo*/
+    border: 1.5px solid #4CAF50;
+    /*cor da borda e espessura*/
+    border-radius: 20px;
+    /*canto*/
+    box-shadow: 0 8px 40px rgb(173, 215, 165);
+    /*sombra da caixa*/
+    color: #2e4d2c;
+    /*cor letra*/
+    font-size: 1rem;
+    /*tamanho da fonte*/
+    line-height: 1.5;
+    /*espaçamento entre as linhas*/
+    overflow-y: auto;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.4s ease;
+    z-index: 1001;
+  }
+
+  #modalSobre.active {
+    opacity: 1;
+    visibility: visible;
+    transform: translate(-50%, -50%) scale(1);
+  }
+
+  #modalSobre h2 {
+    margin-top: 0;
+    font-size: 1.5rem;
+    color: #388e3c;
+  }
+
+  #modalSobre p {
+    text-align: justify;
+    font-size: 0.8rem;
+    font-weight: 500;
+  }
+
+  .lista-sustentavel {
+    list-style: none;
+    /* Remove os marcadores padrão da lista */
+    padding-left: 0;
+    /* Remove o recuo padrão da <ul> */
+  }
+
+  .lista-sustentavel li {
+    position: relative;
+    padding-left: 30px;
+    /*espaço à esquerda para o ícone */
+    margin-bottom: 10px;
+    /*espaço entre os itens da lista */
+    color: #2e4d2c;
+    font-weight: 400;
+  }
+
+  .lista-sustentavel li::before {
+    content: "🌱";
+    position: absolute;
+    /* posiciona o ícone em relação ao <li> */
+    left: 0;
+    /* alinha o ícone à esquerda */
+    top: 0.1em;
+    /* ajusta verticalmente para alinhar com o texto */
+    font-size: 1.1rem;
+    /*tamanho do ícone */
+    line-height: 1.4;
+    /*mantém o ícone alinhado com o texto */
+  }
+
+  #overlaySobre {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 500;
+  }
+
+  #overlaySobre.active {
+    display: block;
+  }
+
+  /**/
+  /**/
+  /**/
+  /**/
+  /**/
+  /**/
+  /**/
+  /**/
+  /*overlay de "login"*/
+  /* Estilo popup login/cadastro */
+  .form-popup {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: 1.6px solid #4CAF50;
+    padding: 16px;
+    background: #ffffff;
+    /*fundo*/
+    z-index: 1000;
+    width: 200px;
+    /*largura*/
+    box-shadow: 0 0 32px rgb(173, 215, 165);
+    /*sombra na caixa*/
+    border-radius: 12px;
+    /*arredonda a borda*/
+  }
+
+  .form-popup h2 {
+    text-align: center;
+    margin-bottom: 16px;
+    color: rgb(23, 48, 18);
+    font-size: 1.2rem;
+  }
+
+  .form-popup label {
+    display: block;
+    margin-top: 16px;
+    color: rgb(23, 48, 18);
+    font-size: 1rem;
+  }
+
+  .form-popup input {
+    width: 95%;
+    padding: 6px;
+    margin-top: 4px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    outline: none;
+  }
+
+  .form-popup input:focus {
+    border: 1px solid #285b2a;
+    /* borda verde ao focar */
+  }
+
+  .form-popup button {
+    width: 100%;
+    padding: 8px;
+    margin-top: 12px;
+    background-color: #2e534ddc;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+    font-weight: bold;
+    transition: background-color 0.3s;
+  }
+
+  .form-popup button:hover {
+    background-color: #5ea98c;
+    box-shadow: 0 0 8px #5ea98c;
+  }
+
+  .form-popup .switch {
+    font-size: 0.8rem;
+    margin-top: 8px;
+    text-align: center;
+  }
+
+  .form-popup .switch a {
+    color: #4CAF50;
+    cursor: pointer;
+    text-decoration: underline;
+  }
+
+  .overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 500;
+  }
+
+  /**/
+  /**/
+  /**/
+  /**/
+  /**/
+  /**/
+  /**/
+  /**/
+  /**/
+  /*Ecomenu*/
+  /*caixas dos botoes */
+  .eco-menu {
+    padding: 20px;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    margin-top: 95px;
+  }
+
+  .menu-conteudo {
+    display: flex;
+    justify-content: center;
+    gap: 70px;
+    flex-wrap: wrap;
+  }
+
+  /* Grupo de cada botão + caixa */
+  .grupo-menu {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 250px;
+  }
+
+  /* Botões */
+  .grupo-menu button {
+    background-color: #fff;
+    color: #4caf50;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1rem;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s, color 0.3s;
+    margin-bottom: 15px;
+  }
+
+  .grupo-menu button:hover {
+    background-color: #e0e0e0;
+    color: #388e3c;
+  }
+
+  /* Estilo base das caixas */
+  .grupo-menu>div {
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 4px 12px rgba(46, 77, 42, 0.3);
+    text-align: center;
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  /* Caixa EcoArtigos */
+  .caixa-ecoartigos {
+    background: linear-gradient(to bottom right, #fce4ec, #f3e5f5);
+    color: #6a1b9a;
+  }
+
+  /* Caixa Guia EcoFriendly */
+  .caixa-guia-ecofriendly {
+    background: linear-gradient(to bottom right, #fff8e1, #f1f8e9);
+    color: #6d4c41;
+  }
+
+  /* Caixa EcoCalculadora */
+  .caixa-ecocalculadora {
+    background: linear-gradient(to bottom right, #e3f2fd, #e8f5e9);
+    color: #0d47a1;
+  }
+
+  /* Caixa EcoDesafios */
+  .caixa-ecodesafios {
+    background: linear-gradient(to bottom right, #a8e6cf, #dcedc8);
+    color: #2e7d32;
+  }
+
+  /**/
+  /**/
+  /**/
+  /**/
+  /**/
+  /**/
+  /**/
+  /**/
+  /**/
+  /* Aba de perfil do usuário */
+  .perfil-usuario {
+    padding: 60px 20px;
+    background: linear-gradient(to bottom right, #e0f7fa, #c8e6c9);
+    color: #1b5e20;
+    font-family: 'Poppins', sans-serif;
+  }
+
+  /* Container principal */
+  .perfil-container {
+    max-width: 520px;
+    margin: 0 auto;
+    background-color: #ffffff;
+    border-radius: 20px;
+    padding: 35px;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+    text-align: center;
+  }
+
+  /* Foto de perfil */
+  .foto-perfil {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid #4caf50;
+    margin-bottom: 15px;
+  }
+
+  /* olá ect */
+  .descricao-perfil {
+    font-size: 1rem;
+    margin-bottom: 25px;
+    color: #388e3c;
+  }
+
+  /* Bloco de dados fixos */
+  .dados-usuario,
+  .editar-usuario {
+    text-align: left;
+    margin-top: 30px;
+  }
+
+  /* Títulos das seções */
+  .dados-usuario h4,
+  .editar-usuario h4 {
+    font-size: 1.1rem;
+    margin-bottom: 12px;
+    color: #2e7d32;
+  }
+
+  /* Lista de dados */
+  .dados-usuario ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  .dados-usuario li {
+    margin-bottom: 10px;
+    font-size: 0.95rem;
+    color: #1b5e20;
+  }
+
+  /* Labels dos campos editáveis */
+  .editar-usuario label {
+    display: block;
+    margin-top: 18px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    color: #388e3c;
+  }
+
+  /* Campos de entrada */
+  .editar-usuario input,
+  .editar-usuario textarea {
+    width: 100%;
+    padding: 10px 12px;
+    margin-top: 6px;
+    border-radius: 8px;
+    border: 1px solid #a5d6a7;
+    background-color: #f1f8e9;
+    font-size: 0.95rem;
+    font-family: 'Poppins', sans-serif;
+    resize: vertical;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .editar-usuario input:focus,
+  .editar-usuario textarea:focus {
+    outline: none;
+    border-color: #66bb6a;
+    box-shadow: 0 0 6px #a5d6a7;
+  }
+
+  /* Botão de edição */
+  .btn-editar {
+    margin-top: 30px;
+    background-color: #43a047;
+    color: white;
+    border: none;
+    padding: 10px 22px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+  }
+
+  .btn-editar:hover {
+    background-color: #66bb6a;
+    transform: scale(1.03);
+  }
+
+  /**/
+  /**/
+  /**/
+  /**/
+  /**/
+  /**/
+  /**/
+  /**/
+  /**/
+  /* eco-menu artigos */
+  .menu-conteudo-art {
+    display: flex;
+    justify-content: center;
+    gap: 70px;
+    flex-wrap: wrap;
+    margin-top: 95px;
+  }
+
+  /* Container dos grupos */
+  .menu-conteudo-art {
+    display: flex;
+    justify-content: center;
+    gap: 70px;
+    flex-wrap: wrap;
+  }
+
+  /* Grupo de botão + caixa */
+  .grupo-menu-art {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 250px;
+  }
+
+  /* Botões dos grupos */
+  .grupo-menu-art button {
+    background-color: #fff;
+    color: #4caf50;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1rem;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s, color 0.3s;
+    margin-bottom: 15px;
+  }
+
+  .grupo-menu-art button:hover {
+    background-color: #e0e0e0;
+    color: #2d5821;
+  }
+
+  /* Estilo base para todas as caixas */
+  .caixa-art {
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 4px 12px #2e4d2a;
+    text-align: center;
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  /* Caixa Reciclagem */
+  .caixa-reciclagem {
+    background: linear-gradient(to bottom right, #a8e6cf, #dcedc8);
+    color: #2e7d32;
+  }
+
+  /* Caixa Alimentação Sustentável */
+  .caixa-alimentacao {
+    background: linear-gradient(to bottom right, #fff8e1, #f1f8e9);
+    color: #6d4c41;
+  }
+
+  /* Caixa Energias Renováveis */
+  .caixa-energia {
+    background: linear-gradient(to bottom right, #e3f2fd, #e8f5e9);
+    color: #0d47a1;
+  }
+
+  /* Caixa PDfs Sustentaveis */
+  .caixa-pdfsSus {
+    background: linear-gradient(to bottom right, #fce4ec, #f3e5f5);
+    color: #6a1b9a;
+  }
+
+  /**/
+  /**/
+  /**/
+  /**/
+  /**/
+  /**/
+  /**/
+  /**/
+  /**/
+  /*ecoartigosReciclagem*/
+  .conteudo-reciclagem {
+    padding: 50px 30px;
+    font-family: 'Segoe UI', sans-serif;
+    max-width: 900px;
+    margin: 60px auto;
+    background: linear-gradient(to bottom right, #eafaf1, #d0f0d6);
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  }
+
+  /* Título principal */
+  .conteudo-reciclagem h2 {
+    font-size: 2.4rem;
+    color: #2d5821;
+    margin-bottom: 30px;
+    text-align: center;
+    font-weight: 700;
+    position: relative;
+  }
+
+  .conteudo-reciclagem h2::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 4px;
+    background-color: #1ca923;
+    margin: 12px auto 0;
+    border-radius: 2px;
+  }
+
+  /* Subtítulos */
+  .conteudo-reciclagem h3 {
+    font-size: 1.6rem;
+    margin-top: 40px;
+    margin-bottom: 15px;
+    color: #1ca923;
+    font-weight: 600;
+  }
+
+  /* Parágrafos */
+  .conteudo-reciclagem p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    margin-bottom: 20px;
+    color: #2e4d2a;
+  }
+
+  /* Listas */
+  .conteudo-reciclagem ul {
+    list-style-type: disc;
+    padding-left: 25px;
+    margin-bottom: 30px;
+  }
+
+  .conteudo-reciclagem ul li {
+    margin-bottom: 12px;
+    color: #2e4d2a;
+    position: relative;
+    padding-left: 10px;
+  }
+
+  .conteudo-reciclagem ul li::marker {
+    color: #1ca923;
+  }
+
+  /* Links */
+  .conteudo-reciclagem a {
+    color: #1ca923;
+    text-decoration: underline;
+    font-weight: 500;
+    transition: color 0.3s ease;
+  }
+
+  .conteudo-reciclagem a:hover {
+    color: #32482f;
+    text-decoration: none;
+  }
+
+  /**/
+  /**/
+  /**/
+  /**/
+  /**/
+  /**/
+  /**/
+  /**/
+  /**/
+  /* ecoartigosAlimentacao */
+  .conteudo-alimentacao {
+    padding: 50px 30px;
+    font-family: 'Segoe UI', sans-serif;
+    max-width: 900px;
+    margin: 60px auto;
+    background: linear-gradient(to bottom right, #fff8e1, #f1f8e9);
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  }
+
+  /* Título principal */
+  .conteudo-alimentacao h2 {
+    font-size: 2.4rem;
+    color: #6d4c41;
+    margin-bottom: 30px;
+    text-align: center;
+    font-weight: 700;
+    position: relative;
+  }
+
+  .conteudo-alimentacao h2::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 4px;
+    background-color: #8bc34a;
+    margin: 12px auto 0;
+    border-radius: 2px;
+  }
+
+  /* Subtítulos */
+  .conteudo-alimentacao h3 {
+    font-size: 1.6rem;
+    margin-top: 40px;
+    margin-bottom: 15px;
+    color: #8bc34a;
+    font-weight: 600;
+  }
+
+  /* Parágrafos */
+  .conteudo-alimentacao p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    margin-bottom: 20px;
+    color: #4e342e;
+  }
+
+  /* Listas */
+  .conteudo-alimentacao ul {
+    list-style-type: disc;
+    padding-left: 25px;
+    margin-bottom: 30px;
+  }
+
+  .conteudo-alimentacao ul li {
+    margin-bottom: 12px;
+    color: #4e342e;
+    position: relative;
+    padding-left: 10px;
+  }
+
+  .conteudo-alimentacao ul li::marker {
+    color: #8bc34a;
+  }
+
+  /* Links */
+  .conteudo-alimentacao a {
+    color: #8bc34a;
+    text-decoration: underline;
+    font-weight: 500;
+    transition: color 0.3s ease;
+  }
+
+  .conteudo-alimentacao a:hover {
+    color: #6d4c41;
+    text-decoration: none;
+  }
+
+  /**/
+  /**/
+  /**/
+  /**/
+  /**/
+  /**/
+  /**/
+  /**/
+  /**/
+  /* ecoartigosEnergia */
+  .conteudo-energia {
+    padding: 50px 30px;
+    font-family: 'Segoe UI', sans-serif;
+    max-width: 900px;
+    margin: 60px auto;
+    background: linear-gradient(to bottom right, #e3f2fd, #e8f5e9);
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  }
+
+  /* Título principal */
+  .conteudo-energia h2 {
+    font-size: 2.4rem;
+    color: #0d47a1;
+    margin-bottom: 30px;
+    text-align: center;
+    font-weight: 700;
+    position: relative;
+  }
+
+  .conteudo-energia h2::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 4px;
+    background-color: #29b6f6;
+    margin: 12px auto 0;
+    border-radius: 2px;
+  }
+
+  /* Subtítulos */
+  .conteudo-energia h3 {
+    font-size: 1.6rem;
+    margin-top: 40px;
+    margin-bottom: 15px;
+    color: #0288d1;
+    font-weight: 600;
+  }
+
+  /* Parágrafos */
+  .conteudo-energia p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    margin-bottom: 20px;
+    color: #37474f;
+  }
+
+  /* Listas */
+  .conteudo-energia ul {
+    list-style-type: disc;
+    padding-left: 25px;
+    margin-bottom: 30px;
+  }
+
+  .conteudo-energia ul li {
+    margin-bottom: 12px;
+    color: #37474f;
+    position: relative;
+    padding-left: 10px;
+  }
+
+  .conteudo-energia ul li::marker {
+    color: #29b6f6;
+  }
+
+  /* Links */
+  .conteudo-energia a {
+    color: #0288d1;
+    text-decoration: underline;
+    font-weight: 500;
+    transition: color 0.3s ease;
+  }
+
+  .conteudo-energia a:hover {
+    color: #0d47a1;
+    text-decoration: none;
+  }
+
+  /**/
+  /**/
+  /**/
+  /**/
+  /**/
+  /**/
+  /**/
+  /**/
+  /**/
+  /*ecoartigosPDF*/
+  .ecoartigospdfs {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(to bottom right, #fce4ec, #f3e5f5);
+    color: #6a1b9a;
+    padding: 50px 30px;
+    max-width: 1000px;
+    margin: 60px auto;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  }
+
+  /* Título principal */
+  .ecoartigospdfs h1 {
+    font-size: 2.5rem;
+    color: #6a1b9a;
+    text-align: center;
+    margin-bottom: 40px;
+    font-weight: 700;
+    position: relative;
+  }
+
+  .ecoartigospdfs h1::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 4px;
+    background-color: #ba68c8;
+    margin: 12px auto 0;
+    border-radius: 2px;
+  }
+
+  /* Título de cada artigo */
+  .ecoartigospdfs h2 {
+    font-size: 1.4rem;
+    margin-top: 40px;
+    margin-bottom: 10px;
+    color: #8e24aa;
+    font-weight: 600;
+    border-left: 4px solid #ce93d8;
+    padding-left: 12px;
+  }
+
+  /* Parágrafos */
+  .ecoartigospdfs p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    margin-bottom: 15px;
+    color: #6a1b9a;
+  }
+
+  /* Links para os PDFs */
+  .ecoartigospdfs a {
+    color: #8e24aa;
+    text-decoration: underline;
+    font-weight: 500;
+    font-size: 0.95rem;
+    transition: color 0.3s ease, text-decoration 0.3s ease;
+  }
+
+  .ecoartigospdfs a:hover {
+    color: #4a148c;
+    text-decoration: none;
+  }
+
+  /* Separação visual entre artigos */
+  .ecoartigospdfs h2:not(:first-of-type) {
+    margin-top: 50px;
+    padding-top: 20px;
+    border-top: 1px solid #e1bee7;
+  }
+
+  /**/
+  /**/
+  /**/
+  /**/
+  /**/
+  /**/
+  /**/
+  /**/
+  /**/
+  /* ecoguia */
+  .eco-guia {
+    padding: 50px 30px;
+    font-family: 'Segoe UI', sans-serif;
+    max-width: 900px;
+    margin: 60px auto;
+    background: linear-gradient(to bottom right, #fff8e1, #f1f8e9);
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  }
+
+  /* Título principal */
+  .eco-guia h2 {
+    font-size: 2.4rem;
+    color: #6d4c41;
+    margin-bottom: 30px;
+    text-align: center;
+    font-weight: 700;
+    position: relative;
+  }
+
+  .eco-guia h2::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 4px;
+    background-color: #8bc34a;
+    margin: 12px auto 0;
+    border-radius: 2px;
+  }
+
+  /* Subtítulos */
+  .eco-guia h3 {
+    font-size: 1.6rem;
+    margin-top: 40px;
+    margin-bottom: 15px;
+    color: #8bc34a;
+    font-weight: 600;
+  }
+
+  /* Parágrafos */
+  .eco-guia p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    margin-bottom: 20px;
+    color: #4e342e;
+  }
+
+  /* Listas */
+  .eco-guia ul {
+    list-style-type: disc;
+    padding-left: 25px;
+    margin-bottom: 30px;
+  }
+
+  .eco-guia ul li {
+    margin-bottom: 12px;
+    color: #4e342e;
+    position: relative;
+    padding-left: 10px;
+  }
+
+  .eco-guia ul li::marker {
+    color: #8bc34a;
+  }
+
+  /* Links */
+  .eco-guia a {
+    color: #8bc34a;
+    text-decoration: underline;
+    font-weight: 500;
+    transition: color 0.3s ease;
+  }
+
+  .eco-guia a:hover {
+    color: #6d4c41;
+    text-decoration: none;
+  }
+
+  /**/
+  /**/
+  /**/
+  /**/
+  /**/
+  /**/
+  /**/
+  /**/
+  /**/
+  /*ecocalculadora*/
+  body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #f0f4f8;
+    margin: 0;
+    padding: 0;
+  }
+
+  .eco-calculadora {
+    max-width: 600px;
+    margin: 40px auto;
+    padding: 30px;
+    background: linear-gradient(to bottom right, #e3f2fd, #e8f5e9);
+    border-radius: 20px;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+    color: #0d47a1;
+  }
+
+  .eco-calculadora h2 {
+    text-align: center;
+    font-size: 1.6rem;
+    margin-bottom: 10px;
+  }
+
+  .eco-calculadora p {
+    text-align: center;
+    font-size: 0.95rem;
+    margin-bottom: 25px;
+  }
+
+  .eco-calculadora label {
+    display: block;
+    margin-top: 15px;
+    font-weight: 600;
+  }
+
+  .eco-calculadora input {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border-radius: 8px;
+    border: 1px solid #bbdefb;
+    background-color: #ffffff;
+    font-size: 0.95rem;
+  }
+
+  .eco-calculadora button {
+    margin-top: 25px;
+    width: 100%;
+    padding: 10px;
+    background-color: #0d47a1;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 0.95rem;
+    transition: background-color 0.3s ease;
+  }
+
+  .eco-calculadora button:hover {
+    background-color: #1565c0;
+  }
+
+  .resultado-pegada {
+    margin-top: 30px;
+    padding: 20px;
+    border-radius: 12px;
+    text-align: center;
+    font-size: 1rem;
+    background-color: #ffffff;
+    border: 2px dashed #0d47a1;
+    color: #0d47a1;
+    display: none;
+  }
+
+  .info-pegada {
+    max-width: 700px;
+    margin: 50px auto;
+    padding: 30px;
+    background: linear-gradient(to bottom right, #e3f2fd, #e8f5e9);
+    border-radius: 20px;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+    color: #0d47a1;
+  }
+
+  .info-pegada h2 {
+    font-size: 1.6rem;
+    margin-bottom: 15px;
+    text-align: center;
+  }
+
+  /**/
+  /**/
+  /**/
+  /**/
+  /**/
+  /**/
+  /**/
+  /**/
+  /**/
+  /* ecodesafio */
+  .eco-desafios {
+    max-width: 700px;
+    margin: 50px auto;
+    padding: 30px;
+    background: linear-gradient(to bottom right, #a8e6cf, #dcedc8);
+    border-radius: 20px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    font-family: 'Poppins', sans-serif;
+    color: #2e7d32;
+  }
+
+  .eco-desafios h2 {
+    text-align: center;
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+  }
+
+  .semana-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+  }
+
+  #tituloSemana {
+    font-weight: 600;
+    font-size: 1.1rem;
+  }
+
+  .progress-circle {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: conic-gradient(#dcedc8 0deg, #dcedc8 360deg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    color: #2e7d32;
+    box-shadow: inset 0 0 5px #a8e6cf;
+  }
+
+  #progressText {
+    font-size: 0.9rem;
+  }
+
+  .checklist-desafios label {
+    display: block;
+    margin: 12px 0;
+    background: #ffffff;
+    padding: 12px 15px;
+    border-radius: 10px;
+    border-left: 6px solid #81c784;
+    transition: transform 0.3s ease;
+    cursor: pointer;
+  }
+
+  .checklist-desafios label:hover {
+    transform: scale(1.02);
+  }
+
+  .checklist-desafios input[type="checkbox"] {
+    margin-right: 10px;
+    transform: scale(1.2);
+  }
+
+  .status-bar {
+    margin-top: 20px;
+    text-align: center;
+  }
+
+  .status-bar p {
+    font-weight: 600;
+    margin-bottom: 10px;
+  }
+
+  .status-bar button {
+    padding: 8px 16px;
+    background-color: #43a047;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+  }
+
+  .popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #ffffff;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+    z-index: 1001;
+    display: none;
+    text-align: center;
+  }
+
+  .popup h3 {
+    color: #4CAF50;
+    margin-bottom: 10px;
+  }
+
+  .popup .medalha {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+  }
+
+  .popup button {
+    margin-top: 15px;
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+  }
+
+  .overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4);
+    z-index: 1000;
+    display: none;
+  }
+
+  /* Cronograma */
+  .cronograma {
+    max-width: 700px;
+    margin: 40px auto;
+    padding: 25px;
+    background: linear-gradient(to bottom right, #a8e6cf, #dcedc8);
+    border-radius: 15px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    font-family: 'Poppins', sans-serif;
+    color: #2e7d32;
+  }
+
+  .cronograma h3 {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  .cronograma table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+
+  .cronograma th,
+  .cronograma td {
+    padding: 12px;
+    border-bottom: 1px solid #c8e6c9;
+    text-align: center;
+  }
+
+  .cronograma td.status-ok {
+    color: #388e3c;
+    font-weight: bold;
+  }
+
+  .cronograma td.status-pendente {
+    color: #f57c00;
+    font-weight: bold;
+  }
+
+}

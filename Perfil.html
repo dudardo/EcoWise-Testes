@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EcoWise - Perfil</title>
+    <link rel="stylesheet" href="EcoC.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <header>
+        <div class="interface">
+            <div class="logo">
+                <h2>EcoWise 🌱</h2>
+            </div>
+            <nav class="menu-desktop">
+                <ul>
+                     <li><a href="EcoMenu.html">Voltar</a></li>
+                    <li><a href="EcoH.html">Sair</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+<main>
+  <section class="perfil-usuario">
+    <div class="perfil-container">
+      <!-- Foto de perfil -->
+      <img src="" alt="Foto de perfil" class="foto-perfil">
+
+      <!-- olá -->
+      <h3>Olá, Usuário</h3>
+      <p class="descricao-perfil">
+        Você está contribuindo para um mundo mais sustentável. Continue assim!
+      </p>
+
+      <!-- Informações fixas -->
+      <div class="dados-usuario">
+        <h4>Informações do usuário</h4>
+        <ul>
+          <li><strong>Nome completo:</strong> <span id="nome-usuario">---</span></li>
+          <li><strong>Email:</strong> <span id="email-usuario">---</span></li>
+          <li><strong>Idade:</strong> <span id="idade-usuario">---</span></li>
+          <li><strong>Localização:</strong> <span id="localizacao-usuario">---</span></li>
+          <li><strong>Progresso Sustentável:</strong> <span id="progresso-usuario">--%</span></li>
+          <li><strong>Desafios concluídos:</strong> <span id="desafios-usuario">0</span></li>
+        </ul>
+      </div>
+
+      <!-- Campos editáveis -->
+      <div class="editar-usuario">
+        <h4>Editar informações</h4>
+        <form id="form-perfil">
+          <label for="nome">Nome completo:</label>
+          <input type="text" id="nome" name="nome" placeholder="Digite seu nome completo">
+
+          <label for="bio">Sobre você:</label>
+          <textarea id="bio" name="bio" rows="3" placeholder="Escreva algo sobre você..."></textarea>
+
+          <label for="preferencias">Preferências sustentáveis:</label>
+          <input type="text" id="preferencias" name="preferencias" placeholder="Ex: reciclagem, energia solar...">
+
+          <button type="submit" class="btn-editar">Salvar Alterações</button>
+        </form>
+      </div>
+    </div>
+  </section>
+</main>
+
+
+</body>
+
+</html>
