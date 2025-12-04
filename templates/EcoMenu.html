@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EcoWise - Plataforma</title>
+  <link rel="stylesheet" href="EcoC.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+
+  <!-- segunda tela/ tela de menu -->
+</head>
+
+<body>
+  <!-- parte superior, onde fica a logo -->
+  <header>
+    <div class="interface">
+      <div class="logo">
+        <h2>EcoWise 🌱</h2>
+      </div>
+      <nav class="menu-desktop">
+        <ul>
+          <li><a href="Perfil.html">Perfil</a></li>
+          <li><a href="EcoH.html">Sair</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+</body>
+
+<body>
+  <main>
+    <section class="eco-menu active" id="ecoMenu">
+      <div class="menu-conteudo">
+        <!-- Grupo 1 -->
+        <div class="grupo-menu">
+          <button data-menu="artigos">EcoArtigos</button>
+          <div class="caixa-ecoartigos">
+            <div class="titulo-ecoartigos">EcoArtigos</div>
+            <p class="descricao-ecoartigos">
+              Explore conteúdos ricos e atualizados sobre sustentabilidade, meio ambiente e inovação ecológica.
+            </p>
+          </div>
+        </div>
+
+        <!-- Grupo 2 -->
+        <div class="grupo-menu">
+          <button data-menu="guia">Guia EcoFriendly</button>
+          <div class="caixa-guia-ecofriendly">
+            <div class="titulo-guia-ecofriendly">Guia EcoFriendly</div>
+            <p class="descricao-eco-guia">
+              Dicas práticas para tornar sua rotina mais verde, com escolhas conscientes e hábitos sustentáveis.
+            </p>
+          </div>
+        </div>
+
+        <!-- Grupo 3 -->
+        <div class="grupo-menu">
+          <button data-menu="calculadora">EcoCalculadora</button>
+          <div class="caixa-ecocalculadora">
+            <div class="titulo-ecocalculadora">EcoCalculadora</div>
+            <p class="descricao-eco-calc">
+              Descubra sua pegada ecológica e veja como pequenas mudanças podem gerar grandes impactos positivos.
+            </p>
+          </div>
+        </div>
+
+        <!-- Grupo 4 -->
+        <div class="grupo-menu">
+          <button data-menu="desafios">EcoDesafios</button>
+          <div class="caixa-ecodesafios">
+            <div class="titulo-ecodesafios">EcoDesafios</div>
+            <p class="descricao-eco-desafios">
+              Participe de desafios criativos que incentivam ações sustentáveis e engajamento com a natureza.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="content"></section>
+  </main>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      document.querySelector('[data-menu="artigos"]').addEventListener('click', () => {
+        window.location.href = "ecoartigos.html";
+      });
+
+      document.querySelector('[data-menu="guia"]').addEventListener('click', () => {
+        window.location.href = "Guia.html";
+      });
+
+      document.querySelector('[data-menu="calculadora"]').addEventListener('click', () => {
+        window.location.href = "Calculadora.html";
+      });
+
+      document.querySelector('[data-menu="desafios"]').addEventListener('click', () => {
+        window.location.href = "Desafios.html";
+      });
+    });
+  </script>
+</body>
+</html>

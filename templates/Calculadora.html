@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <title>EcoCalculadora 🌱</title>
+  <link rel="stylesheet" href="EcoC.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+
+</head>
+
+<body>
+
+  <!-- parte superior, onde fica a logo -->
+  <header>
+    <div class="interface">
+      <div class="logo">
+        <h2>EcoWise 🌱</h2>
+      </div>
+      <nav class="menu-desktop">
+        <ul>
+          <li><a href="EcoMenu.html">voltar</a></li>
+          <li><a href="EcoH.html">Sair</a></li>
+        </ul>
+      </nav>
+
+
+    </div>
+  </header>
+
+  <main class="eco-calculadora">
+    <h2>EcoCalculadora</h2>
+    <p>Calcule sua pegada de carbono e descubra como reduzir seu impacto ambiental.</p>
+
+    <form id="calcForm">
+      <label for="energia">Energia Elétrica (kWh/mês):</label>
+      <input type="number" id="energia" min="0" placeholder="Ex: 120" />
+
+      <label for="glp">GLP (Botijão de gás - kg/mês):</label>
+      <input type="number" id="glp" min="0" placeholder="Ex: 13" />
+
+      <label for="voosNac">Voos nacionais (por ano):</label>
+      <input type="number" id="voosNac" min="0" placeholder="Ex: 2" />
+
+      <label for="voosInt">Voos internacionais (por ano):</label>
+      <input type="number" id="voosInt" min="0" placeholder="Ex: 1" />
+
+      <label for="gásNatural">Veículo a gás natural (km/mês):</label>
+      <input type="number" id="gásNatural" min="0" placeholder="Ex: 300" />
+
+      <label for="diesel">Combustível Diesel (litros/mês):</label>
+      <input type="number" id="diesel" min="0" placeholder="Ex: 50" />
+
+      <label for="gasolina">Combustível Gasolina (litros/mês):</label>
+      <input type="number" id="gasolina" min="0" placeholder="Ex: 60" />
+
+      <label for="alcool">Combustível Álcool (litros/mês):</label>
+      <input type="number" id="alcool" min="0" placeholder="Ex: 40" />
+
+      <button type="submit">Calcular Pegada</button>
+    </form>
+
+    <div id="calcResultado" class="resultado-pegada"></div>
+  </main>
+
+  <section class="info-pegada">
+    <h2>Pegada de Carbono</h2>
+    <p>
+      A pegada de carbono mede a quantidade de gases de efeito estufa emitidos por atividades humanas, direta ou
+      indiretamente.
+      Ela inclui fatores como transporte, alimentação, energia, consumo e resíduos.
+    </p>
+
+    <h3>Benefícios da Medição</h3>
+    <ul>
+      <li>Identifica hábitos que geram mais impacto ambiental.</li>
+      <li>Ajuda na criação de estratégias para reduzir emissões.</li>
+      <li>Conscientiza sobre escolhas diárias que afetam o planeta.</li>
+    </ul>
+
+    <h3>Formas de Redução</h3>
+    <ul>
+      <li>Transporte público, bicicleta ou caronas.</li>
+      <li>Economia de energia em residências e empresas.</li>
+      <li>Consumo de alimentos locais, sazonais e redução de carne.</li>
+      <li>Reciclagem e reaproveitamento de materiais.</li>
+    </ul>
+
+    <h3>Referências</h3>
+    <ul>
+      <li><a href="https://www.wwf.org.br/" target="_blank">WWF Brasil</a></li>
+      <li><a href="https://www.gov.br/mma/" target="_blank">Ministério do Meio Ambiente</a></li>
+    </ul>
+  </section>
+
+
+
+  <script>
+    document.getElementById('calcForm').addEventListener('submit', e => {
+      e.preventDefault();
+
+      const energia = +document.getElementById('energia').value || 0;
+      const glp = +document.getElementById('glp').value || 0;
+      const voosNac = +document.getElementById('voosNac').value || 0;
+      const voosInt = +document.getElementById('voosInt').value || 0;
+      const gásNatural = +document.getElementById('gásNatural').value || 0;
+      const diesel = +document.getElementById('diesel').value || 0;
+      const gasolina = +document.getElementById('gasolina').value || 0;
+      const alcool = +document.getElementById('alcool').value || 0;
+
+      const emissaoTotal =
+        energia * 0.084 +
+        glp * 2.9 +
+        voosNac * 250 +
+        voosInt * 600 +
+        gásNatural * 0.05 +
+        diesel * 2.7 +
+        gasolina * 2.3 +
+        alcool * 1.5;
+
+      const resultadoDiv = document.getElementById('calcResultado');
+      let sugestao = '', classe = '', icone = '';
+
+      if (emissaoTotal >= 1500) {
+        sugestao = 'Pegada alta 🌋<br><strong>Dica:</strong> Reduza o consumo de energia e transporte.';
+        icone = '⚠️';
+      } else if (emissaoTotal >= 800) {
+        sugestao = 'Pegada moderada 🌤️<br><strong>Dica:</strong> Adote energia renovável e transporte coletivo.';
+        icone = '🌿';
+      } else {
+        sugestao = 'Parabéns! 🌈<br><strong>Dica:</strong> Sua pegada é baixa — continue assim!';
+        icone = '💚';
+      }
+
+      resultadoDiv.innerHTML = `
+        <span class="icone">${icone}</span><br>
+        <b>${emissaoTotal.toFixed(1)} kg de CO₂/mês</b><br>${sugestao}
+      `;
+      resultadoDiv.style.display = 'block';
+    });
+
+  </script>
+
+</body>
+
+</html>

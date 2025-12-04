@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <title>EcoArtigos</title>
+  <link rel="stylesheet" href="EcoC.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+  <!-- Cabeçalho  -->
+  <header>
+    <div class="interface">
+      <div class="logo">
+        <h2>EcoWise 🌱</h2>
+      </div>
+      <nav class="menu-desktop">
+        <ul>
+          <li><a href="EcoMenu.html">Voltar</a></li>
+          <li><a href="EcoH.html">Sair</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Conteúdo principal, botoes  -->
+
+  <main>
+    <section class="eco-menu-art" id="ecoMenuArt">
+      <div class="menu-conteudo-art">
+        <!-- Grupo 1: Reciclagem -->
+        <div class="grupo-menu-art grupo-reciclagem">
+          <button data-menu-art="reciclagemArt">Reciclagem</button>
+          <div class="caixa-art caixa-reciclagem">
+            <div class="titulo-art">Reciclagem</div>
+            <p class="descricao-art">
+              Reciclar é cuidar do planeta! Separe seu lixo e contribua para um mundo mais sustentável.
+            </p>
+          </div>
+        </div>
+
+        <!-- Grupo 2: Alimentação Sustentável -->
+        <div class="grupo-menu-art grupo-alimentacao">
+          <button data-menu-art="alimentacaoArt">Alimentação Sustentável</button>
+          <div class="caixa-art caixa-alimentacao">
+            <div class="titulo-art">Alimentação Sustentável</div>
+            <p class="descricao-art">
+              Prefira alimentos locais e orgânicos para reduzir o impacto ambiental.
+            </p>
+          </div>
+        </div>
+
+        <!-- Grupo 3: Energias Renováveis -->
+        <div class="grupo-menu-art grupo-energia">
+          <button data-menu-art="energiaArt">Energias Renováveis</button>
+          <div class="caixa-art caixa-energia">
+            <div class="titulo-art">Energias Renováveis</div>
+            <p class="descricao-art">
+              Use fontes como solar e eólica para diminuir a emissão de gases poluentes.
+            </p>
+          </div>
+        </div>
+
+        <!-- Grupo 4: PDFs sustentáveis -->
+      <div class="grupo-menu-art grupo-pdfsSus">
+        <button data-menu-art="pdfsSusArt">Materiais Sustentáveis</button>
+        <div class="caixa-art caixa-pdfsSus">
+          <div class="titulo-art">Materiais Sustentáveis</div>
+          <p class="descricao-art">
+            Acesse guias, cartilhas e documentos em PDF com informações sobre práticas sustentáveis.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const redirecionamentosArt = {
+      reciclagemArt: "ecoartigosReciclagem.html",
+      alimentacaoArt: "ecoartigosAlimentSus.html",
+      energiaArt: "ecoartigosEnergiaRen.html",
+      pdfsSusArt: "ecoartigospdfs.html"
+    };
+
+    document.querySelectorAll("[data-menu-art]").forEach(botao => {
+      botao.addEventListener("click", () => {
+        const destino = redirecionamentosArt[botao.dataset.menuArt];
+        if (destino) {
+          window.location.href = destino;
+        }
+      });
+    });
+  });
+</script>
+</body>
+
+</html>
