@@ -1,0 +1,3 @@
+- Repositório principal do projeto integrador de membros da turma I2263TF. 
+- Denominado EcoWise, plataforma de acesso a informações orientadas a ecologia, promulgação de desafios ecológicos semanais e calculadora ecológica.
+- Aplicação web desenvolvida em html/css e python flask no backend com SQLite no banco de dados.
