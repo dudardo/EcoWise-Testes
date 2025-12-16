@@ -4,8 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <title>Guia EcoFriendly</title>
-  <link rel="stylesheet" href="{{ url_for('static', filename='css/EcoC.css') }}">
-
+  <link rel="stylesheet" href="EcoC.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
@@ -15,14 +14,17 @@
 <body>
 
   <!-- parte superior, onde fica a logo -->
-  <header>
+  <header class="header-fixo">
     <div class="interface">
       <div class="logo">
-        <h2>EcoWise 🌱</h2>
+        <a href="EcoH.html" style="text-decoration: none; color: inherit;">
+          <h2>EcoWise 🌱</h2>
+        </a>
       </div>
       <nav class="menu-desktop">
         <ul>
-          <li><a href="EcoMenu.html">voltar</a></li>
+          <li><a href="Perfil.html">Perfil</a></li>
+          <li><a href="EcoMenu.html">Voltar</a></li>
           <li><a href="EcoH.html">Sair</a></li>
         </ul>
       </nav>
@@ -34,41 +36,83 @@
     <h2>Guia EcoFriendly</h2>
     <p>Conheça marcas que estão transformando o mercado com responsabilidade ambiental e inovação sustentável:</p>
 
-    <h3> Cosméticos e Higiene</h3>
-    <ul>
-      <li><b>Natura</b> – refis, embalagens recicladas e cadeia de produção responsável.</li>
-      <li><b>B.O.B</b> – shampoos e condicionadores em barra, sem plástico e veganos.</li>
-      <li><b>Ethique</b> – cosméticos sólidos em embalagens compostáveis.</li>
-    </ul>
+    <div class="categoria-container">
 
-    <h3> Alimentos e Bebidas</h3>
-    <ul>
-      <li><b>Mãe Terra</b> – alimentos orgânicos e integrais com agricultura regenerativa.</li>
-      <li><b>Korin</b> – carnes e ovos orgânicos, sem antibióticos e com rastreabilidade.</li>
-      <li><b>Nespresso</b> – reciclagem de cápsulas e apoio a produtores sustentáveis.</li>
-    </ul>
+      <div class="categoria-texto">
+        <h3>Cosméticos e Higiene</h3>
+        <ul>
+          <li><b>Natura</b> – refis, embalagens recicladas e cadeia de produção responsável.</li>
+          <li><b>B.O.B</b> – shampoos e condicionadores em barra, sem plástico e veganos.</li>
+          <li><b>Ethique</b> – cosméticos sólidos em embalagens compostáveis.</li>
+        </ul>
+      </div>
 
-    <h3> Moda e Vestuário</h3>
-    <ul>
-      <li><b>Insecta Shoes</b> – calçados veganos com tecidos reciclados e garrafas PET.</li>
-      <li><b>Pantys</b> – calcinhas absorventes reutilizáveis e carbono neutro.</li>
-      <li><b>Patagonia</b> – roupas feitas com materiais reciclados e práticas éticas.</li>
-      <li><b>Allbirds</b> – tênis com lã merino e sola de cana-de-açúcar.</li>
-    </ul>
+      <img src="img/guiaBOB.jpg" class="categoria-img" alt="Cosméticos Sustentáveis">
 
-    <h3> Limpeza e Casa</h3>
-    <ul>
-      <li><b>Veja</b> – linha de limpeza biodegradável com menor impacto ambiental.</li>
-      <li><b>Positiv.a</b> – produtos naturais, biodegradáveis e com embalagens retornáveis.</li>
-      <li><b>YVY Brasil</b> – sistema de refil com ingredientes vegetais e baixo impacto.</li>
-    </ul>
+    </div>
 
-    <h3> Energia e Mobilidade</h3>
-    <ul>
-      <li><b>SolarVolt</b> – soluções de energia solar para residências e empresas.</li>
-      <li><b>Movida</b> – frota híbrida e elétrica com programa de carbono neutro.</li>
-    </ul>
+    <div class="categoria-container">
 
+      <img src="img/guiakorin.jpg" class="categoria-img" alt="Alimentos Sustentáveis">
+
+      <div class="categoria-texto">
+        <h3>Alimentos e Bebidas</h3>
+        <ul>
+          <li><b>Mãe Terra</b> – alimentos orgânicos e integrais com agricultura regenerativa.</li>
+          <li><b>Korin</b> – carnes e ovos orgânicos, sem antibióticos e com rastreabilidade.</li>
+          <li><b>Nespresso</b> – reciclagem de cápsulas e apoio a produtores sustentáveis.</li>
+        </ul>
+      </div>
+
+      
+
+    </div>
+    <div class="categoria-container">
+
+      <div class="categoria-texto">
+        <h3>Moda e Vestuário</h3>
+        <ul>
+          <li><b>Insecta Shoes</b> – calçados veganos com tecidos reciclados e garrafas PET.</li>
+          <li><b>Pantys</b> – calcinhas absorventes reutilizáveis e carbono neutro.</li>
+          <li><b>Patagonia</b> – roupas feitas com materiais reciclados e práticas éticas.</li>
+          <li><b>Allbirds</b> – tênis com lã merino e sola de cana-de-açúcar.</li>
+        </ul>
+      </div>
+
+      <img src="img/guiapantagonia.jpg" class="categoria-img" alt="Moda Sustentável">
+
+    </div>
+
+    <div class="categoria-container">
+
+      <img src="img/guiapositiva.jpg" class="categoria-img" alt="Produtos de Limpeza Sustentáveis">
+      
+      <div class="categoria-texto">
+        <h3>Limpeza e Casa</h3>
+        <ul>
+          <li><b>Veja</b> – linha de limpeza biodegradável com menor impacto ambiental.</li>
+          <li><b>Positiv.a</b> – produtos naturais, biodegradáveis e com embalagens retornáveis.</li>
+          <li><b>YVY Brasil</b> – sistema de refil com ingredientes vegetais e baixo impacto.</li>
+        </ul>
+      </div>
+
+      
+
+    </div>
+
+    <div class="categoria-container">
+
+      <div class="categoria-texto">
+        <h3>Energia e Mobilidade</h3>
+        <ul>
+          <li><b>SolarVolt</b> – soluções de energia solar para residências e empresas.</li>
+          <li><b>Movida</b> – frota híbrida e elétrica com programa de carbono neutro.</li>
+        </ul>
+      </div>
+
+      <img src="img/guia.jpg" class="categoria-img" alt="Energia e Mobilidade Sustentável">
+
+    </div>
     <h3> Fontes</h3>
     <ul class="referencias-links">
       <li><a href="https://painelflorestal.com.br/100-empresas-sustentaveis-no-brasil/" target="_blank">Painel Florestal

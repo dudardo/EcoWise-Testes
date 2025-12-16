@@ -4,22 +4,24 @@
 <head>
   <meta charset="UTF-8">
   <title>EcoDesafios 🌱</title>
-  <link rel="stylesheet" href="{{ url_for('static', filename='css/EcoC.css') }}">
-
+  <link rel="stylesheet" href="EcoC.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 </head>
 
 <body>
-  <!-- Cabeçalho com logo e navegação -->
-  <header>
+  <!-- parte superior, onde fica a logo -->
+  <header class="header-fixo">
     <div class="interface">
       <div class="logo">
-        <h2>EcoWise 🌱</h2>
+        <a href="EcoH.html" style="text-decoration: none; color: inherit;">
+          <h2>EcoWise 🌱</h2>
+        </a>
       </div>
       <nav class="menu-desktop">
         <ul>
+          <li><a href="Perfil.html">Perfil</a></li>
           <li><a href="EcoMenu.html">Voltar</a></li>
           <li><a href="EcoH.html">Sair</a></li>
         </ul>
@@ -28,10 +30,12 @@
   </header>
 
 
+  <!-- Conteúdo principal -->
   <main class="eco-desafios">
-    <h2>🌿 EcoDesafios do Mês</h2>
+    <h2>🌿 EcoDesafios – 6 Meses de Jornada Sustentável</h2>
+
     <div class="semana-header">
-      <p id="tituloSemana">Semana 1: Iniciando a Jornada Verde</p>
+      <p id="tituloSemana"></p>
       <div class="progress-circle" id="progressCircle">
         <span id="progressText">0%</span>
       </div>
@@ -40,179 +44,189 @@
     <form id="ecoChecklist" class="checklist-desafios"></form>
 
     <div class="status-bar">
-      <p id="progresso">Progresso: 0/5 desafios concluídos ✅</p>
-      <button id="btnExportar" style="display: none;">📊 Ver Cronograma</button>
+      <p id="progresso"></p>
+      <button id="btnExportar">📊 Ver Cronograma</button>
+      <button id="btnVoltarSemana">⬅️ Voltar Semana</button>
+      <button id="btnProximaSemana">➡️ Próxima Semana</button>
     </div>
 
-    <section id="cronogramaDesafios" class="cronograma" style="display: none;">
+    <section id="cronogramaDesafios" class="cronograma" style="display:none;">
       <h3>📅 Cronograma de Desafios Sustentáveis</h3>
       <table>
         <thead>
           <tr>
             <th>Semana</th>
             <th>Tema</th>
-            <th>Desafios Concluídos</th>
+            <th>Desafios</th>
             <th>Status</th>
           </tr>
         </thead>
         <tbody id="tabelaCronograma"></tbody>
       </table>
     </section>
-
   </main>
 
-  <!-- Popup de conclusão -->
-  <div id="popupFofo" class="popup">
-    <div class="medalha">🏅</div>
-    <h3>Parabéns!</h3>
-    <p id="msgPopup">Você concluiu todos os desafios da semana! 🌎💚</p>
-    <button id="btnFecharPopup">Fechar</button>
+  <!-- Popups -->
+  <div id="popupNaoConcluiu" class="popup">
+    <h3>⚠️ Atenção</h3>
+    <p>Você ainda não concluiu todos os desafios desta semana.</p>
+    <button id="confirmarAvancar">Avançar mesmo assim</button>
+    <button id="cancelarAvancar">Cancelar</button>
   </div>
+
+  <div id="popupConfirmar" class="popup">
+    <h3>🤔 Confirmar</h3>
+    <p>Tem certeza que deseja iniciar a próxima semana?</p>
+    <button id="confirmarProxima">Sim</button>
+    <button id="cancelarProxima">Cancelar</button>
+  </div>
+
   <div id="overlayPopup" class="overlay"></div>
 
-
-
-
-
   <script>
+    /*DESAFIOS – 24 SEMANAS */
     const semanas = [
-      [
-        "Reciclagem inteligente – separe o lixo por uma semana.",
-        "Desafio da água – reduza o tempo no banho em 2 minutos.",
-        "Economia de energia – desligue luzes e aparelhos não usados.",
-        "Transporte verde – caminhe ou use bicicleta 2 vezes.",
-        "Consumo consciente – substitua 2 produtos por versões sustentáveis."
-      ],
-      [
-        "Plante uma muda ou cuide de uma planta existente.",
-        "Desafio sem plástico – evite sacolas e copos descartáveis.",
-        "Use garrafa reutilizável durante toda a semana.",
-        "Faça uma refeição 100% vegetariana em um dia.",
-        "Compartilhe uma dica sustentável com um amigo."
-      ],
-      [
-        "Doe roupas ou objetos que não usa mais.",
-        "Evite comprar por impulso – reflita antes de cada compra.",
-        "Reduza o uso de papel: digitalize suas anotações.",
-        "Descarte corretamente pilhas e baterias.",
-        "Crie um cantinho verde com vasos ou temperos."
-      ],
-      [
-        "Passe um dia inteiro sem usar transporte motorizado.",
-        "Organize um mutirão de limpeza com amigos.",
-        "Reduza o consumo de carne nesta semana.",
-        "Reutilize água (ex: da chuva ou do enxágue de roupas).",
-        "Compartilhe sua jornada sustentável nas redes!"
-      ]
+      ["Economizar água no banho", "Fechar torneira ao escovar os dentes", "Evitar lavar calçadas", "Reutilizar água sempre que possível", "Conscientizar alguém sobre economia de água"],
+      ["Separar lixo reciclável", "Lavar embalagens recicláveis", "Descartar lixo corretamente", "Reduzir lixo orgânico", "Ensinar alguém a reciclar"],
+      ["Apagar luzes desnecessárias", "Desligar aparelhos da tomada", "Usar luz natural", "Evitar desperdício de energia", "Economizar energia em casa"],
+      ["Caminhar pequenas distâncias", "Evitar uso do carro", "Usar bicicleta", "Compartilhar carona", "Refletir sobre mobilidade sustentável"],
+
+      ["Usar garrafa reutilizável", "Evitar sacolas plásticas", "Recusar canudos descartáveis", "Reduzir plástico no dia a dia", "Incentivar consumo consciente"],
+      ["Planejar refeições", "Evitar desperdício de comida", "Aproveitar sobras", "Consumir alimentos locais", "Valorizar os alimentos"],
+      ["Plantar ou cuidar de uma planta", "Regar corretamente", "Pesquisar plantas nativas", "Cuidar do solo", "Valorizar áreas verdes"],
+      ["Usar menos papel", "Evitar impressões", "Reutilizar folhas", "Digitalizar anotações", "Conscientizar colegas"],
+
+      ["Reduzir consumo de carne", "Experimentar refeição vegetariana", "Evitar desperdício alimentar", "Pesquisar impactos ambientais", "Compartilhar aprendizado"],
+      ["Doar roupas ou objetos", "Evitar compras desnecessárias", "Reutilizar itens", "Customizar roupas", "Praticar consumo consciente"],
+      ["Desligar luzes à noite", "Evitar TV ligada sem uso", "Dormir mais cedo", "Reduzir consumo elétrico", "Criar rotina sustentável"],
+      ["Descartar pilhas corretamente", "Cuidar do lixo eletrônico", "Pesquisar pontos de coleta", "Evitar troca desnecessária", "Conscientizar família"],
+
+      ["Usar balde em vez de mangueira", "Reduzir uso de água na limpeza", "Evitar desperdício", "Reaproveitar água", "Conscientizar vizinhos"],
+      ["Evitar produtos descartáveis", "Usar itens duráveis", "Comprar com consciência", "Evitar excesso de embalagens", "Analisar hábitos de consumo"],
+      ["Participar de ação ambiental", "Cuidar de praças ou ruas", "Não jogar lixo no chão", "Respeitar a natureza", "Engajar amigos"],
+      ["Evitar uso excessivo de ar-condicionado", "Usar ventilação natural", "Economizar energia no calor", "Hidratar-se bem", "Reduzir consumo elétrico"],
+
+      ["Reduzir tempo de banho", "Fechar torneiras corretamente", "Verificar vazamentos", "Economizar água em casa", "Criar hábito sustentável"],
+      ["Planejar compras", "Evitar desperdício", "Guardar sobras corretamente", "Consumir conscientemente", "Valorizar recursos"],
+      ["Separar resíduos diariamente", "Reutilizar embalagens", "Evitar descartáveis", "Reduzir lixo diário", "Manter hábito sustentável"],
+      ["Respeitar animais", "Proteger a fauna", "Evitar lixo em áreas verdes", "Cuidar do meio ambiente", "Educação ambiental"],
+
+      ["Revisar hábitos sustentáveis", "Manter boas práticas", "Eliminar desperdícios", "Consolidar rotina verde", "Inspirar outras pessoas"],
+      ["Reduzir consumo de energia", "Acompanhar gastos", "Usar energia conscientemente", "Evitar excessos", "Melhorar hábitos"],
+      ["Avaliar impacto ambiental", "Reduzir consumo", "Compensar impactos", "Conscientizar pessoas", "Atitude sustentável"],
+      ["Criar plano ambiental pessoal", "Manter hábitos adquiridos", "Compartilhar resultados", "Celebrar evolução", "Compromisso com o planeta 🌍"]
     ];
 
-    let semanaAtual = 0;
+    let semanaAtual = Number(localStorage.getItem("semanaAtual")) || 0;
+    let progressoSemanas = JSON.parse(localStorage.getItem("progressoSemanas")) || {};
 
     const checklistForm = document.getElementById("ecoChecklist");
     const progresso = document.getElementById("progresso");
-    const popup = document.getElementById("popupFofo");
-    const overlay = document.getElementById("overlayPopup");
-    const btnFechar = document.getElementById("btnFecharPopup");
     const tituloSemana = document.getElementById("tituloSemana");
-    const msgPopup = document.getElementById("msgPopup");
-    const btnExportar = document.getElementById("btnExportar");
     const progressCircle = document.getElementById("progressCircle");
     const progressText = document.getElementById("progressText");
+    const tabelaCronograma = document.getElementById("tabelaCronograma");
+    const cronogramaDesafios = document.getElementById("cronogramaDesafios");
+    const overlay = document.getElementById("overlayPopup");
 
     function obterTituloSemana(i) {
-      const titulos = [
-        "Iniciando a Jornada Verde ",
-        "Pequenas Ações, Grandes Mudanças ",
-        "Transformando Hábitos ",
-        "Cuidando do Planeta "
-      ];
-      return titulos[i];
+      return `Missão Sustentável da Semana ${i + 1}`;
     }
 
     function carregarSemana() {
       checklistForm.innerHTML = "";
       tituloSemana.textContent = `Semana ${semanaAtual + 1}: ${obterTituloSemana(semanaAtual)}`;
-      semanas[semanaAtual].forEach((texto, index) => {
+
+      semanas[semanaAtual].forEach((texto, i) => {
+        const marcado = progressoSemanas[semanaAtual]?.includes(i);
         const label = document.createElement("label");
-        label.innerHTML = `<input type="checkbox" data-index="${index}"> ${texto}`;
+        label.innerHTML = `<input type="checkbox" ${marcado ? "checked" : ""}> ${texto}`;
         checklistForm.appendChild(label);
       });
+
       atualizarProgresso();
     }
 
     function atualizarProgresso() {
-      const checkboxes = checklistForm.querySelectorAll('input[type="checkbox"]');
-      const total = checkboxes.length;
-      const marcados = Array.from(checkboxes).filter(c => c.checked).length;
+      const checks = checklistForm.querySelectorAll("input");
+      const feitos = [...checks].filter(c => c.checked).length;
+      const total = checks.length;
 
-      progresso.textContent = `Progresso: ${marcados}/${total} desafios concluídos ✅`;
-      const porcentagem = Math.round((marcados / total) * 100);
-      progressText.textContent = `${porcentagem}%`;
-      progressCircle.style.background = `conic-gradient(#66bb6a ${porcentagem * 3.6}deg, #c8e6c9 0deg)`;
+      progresso.textContent =
+        feitos === total
+          ? `✅ Completo – ${feitos}/${total} desafios concluídos`
+          : `❌ Incompleto – ${feitos}/${total} desafios concluídos`;
 
-      if (marcados === total) {
-        popup.style.display = "block";
-        overlay.style.display = "block";
-        msgPopup.innerHTML = semanaAtual < semanas.length - 1
-          ? `🎉 Você concluiu todos os desafios da Semana ${semanaAtual + 1}!<br>Prepare-se para a próxima!`
-          : `🎉 Parabéns! Você completou o mês inteiro de desafios! 🌍💚`;
-        btnExportar.style.display = "inline-block";
+      const perc = Math.round((feitos / total) * 100);
+      progressText.textContent = `${perc}%`;
+      progressCircle.style.background =
+        `conic-gradient(#66bb6a ${perc * 3.6}deg, #c8e6c9 0deg)`;
+
+      progressoSemanas[semanaAtual] = [...checks].map((c, i) => c.checked ? i : null).filter(i => i !== null);
+      localStorage.setItem("progressoSemanas", JSON.stringify(progressoSemanas));
+      localStorage.setItem("semanaAtual", semanaAtual);
+    }
+
+    function atualizarCronograma() {
+      tabelaCronograma.innerHTML = "";
+      for (let i = 0; i < semanas.length; i++) {
+        const feitos = progressoSemanas[i]?.length || 0;
+        const status = feitos === 5 ? "✔️ Concluído" : feitos > 0 ? "⏳ Em andamento" : "🔒 Não iniciado";
+
+        tabelaCronograma.innerHTML += `
+          <tr>
+            <td>${i + 1}</td>
+            <td>${obterTituloSemana(i)}</td>
+            <td>${feitos}/5</td>
+            <td>${status}</td>
+          </tr>
+        `;
       }
     }
 
-    checklistForm.addEventListener("change", atualizarProgresso);
-
-    btnFechar.addEventListener("click", () => {
-      popup.style.display = "none";
-      overlay.style.display = "none";
+    function avancarSemana() {
       if (semanaAtual < semanas.length - 1) {
         semanaAtual++;
         carregarSemana();
       }
-    });
-
-    overlay.addEventListener("click", () => {
-      popup.style.display = "none";
-      overlay.style.display = "none";
-    });
-
-    carregarSemana();
-
-
-    const tabelaCronograma = document.getElementById("tabelaCronograma");
-    const cronogramaDesafios = document.getElementById("cronogramaDesafios");
-
-    btnExportar.addEventListener("click", () => {
-      tabelaCronograma.innerHTML = "";
-      for (let i = 0; i < semanas.length; i++) {
-        const linha = document.createElement("tr");
-        const tema = obterTituloSemana(i);
-        const concluido = i < semanaAtual ? "5/5" : i === semanaAtual ? `${countChecked()}/5` : "0/5";
-        const status = i < semanaAtual
-          ? `<td class="status-ok">✔️ Concluído</td>`
-          : i === semanaAtual
-            ? `<td class="status-pendente">⏳ Em andamento</td>`
-            : `<td class="status-pendente">🔒 Não iniciado</td>`;
-
-        linha.innerHTML = `
-      <td>Semana ${i + 1}</td>
-      <td>${tema}</td>
-      <td>${concluido}</td>
-      ${status}
-    `;
-        tabelaCronograma.appendChild(linha);
-      }
-      cronogramaDesafios.style.display = "block";
-    });
-
-    function countChecked() {
-      const checkboxes = checklistForm.querySelectorAll('input[type="checkbox"]');
-      return Array.from(checkboxes).filter(c => c.checked).length;
     }
 
+    function voltarSemana() {
+      if (semanaAtual > 0) {
+        semanaAtual--;
+        carregarSemana();
+      }
+    }
+
+    document.getElementById("btnProximaSemana").onclick = () => {
+      const feitos = checklistForm.querySelectorAll("input:checked").length;
+      overlay.style.display = "block";
+      document.getElementById(feitos < 5 ? "popupNaoConcluiu" : "popupConfirmar").style.display = "block";
+    };
+
+    document.getElementById("confirmarAvancar").onclick =
+      document.getElementById("confirmarProxima").onclick = () => {
+        document.querySelectorAll(".popup").forEach(p => p.style.display = "none");
+        overlay.style.display = "none";
+        avancarSemana();
+      };
+
+    document.getElementById("cancelarAvancar").onclick =
+      document.getElementById("cancelarProxima").onclick = () => {
+        document.querySelectorAll(".popup").forEach(p => p.style.display = "none");
+        overlay.style.display = "none";
+      };
+
+    document.getElementById("btnVoltarSemana").onclick = voltarSemana;
+    document.getElementById("btnExportar").onclick = () => {
+      atualizarCronograma();
+      cronogramaDesafios.style.display = "block";
+    };
+
+    checklistForm.addEventListener("change", atualizarProgresso);
+
+    carregarSemana();
   </script>
-
-
 </body>
 
 </html>

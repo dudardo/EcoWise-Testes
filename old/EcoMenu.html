@@ -5,7 +5,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>EcoWise - Plataforma</title>
-  <link rel="stylesheet" href="EcoC.css">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/EcoC.css') }}">
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
@@ -16,12 +17,10 @@
 
 <body>
   <!-- parte superior, onde fica a logo -->
-  <header class="header-fixo">
+  <header>
     <div class="interface">
       <div class="logo">
-        <a href="EcoH.html" style="text-decoration: none; color: inherit;">
-          <h2>EcoWise 🌱</h2>
-        </a>
+        <h2>EcoWise 🌱</h2>
       </div>
       <nav class="menu-desktop">
         <ul>
@@ -32,21 +31,18 @@
     </div>
   </header>
 
-
 </body>
 
 <body>
   <main>
-    <h1 class="titulo-menu">Você está no Menu </h1>
-
     <section class="eco-menu active" id="ecoMenu">
       <div class="menu-conteudo">
-
         <!-- Grupo 1 -->
         <div class="grupo-menu">
-          <div class="caixa-ecoartigos botao-caixa" data-menu="artigos">
-            <h3 class="titulo-caixa">EcoArtigos</h3>
-            <p>
+          <button data-menu="artigos">EcoArtigos</button>
+          <div class="caixa-ecoartigos">
+            <div class="titulo-ecoartigos">EcoArtigos</div>
+            <p class="descricao-ecoartigos">
               Explore conteúdos ricos e atualizados sobre sustentabilidade, meio ambiente e inovação ecológica.
             </p>
           </div>
@@ -54,9 +50,10 @@
 
         <!-- Grupo 2 -->
         <div class="grupo-menu">
-          <div class="caixa-guia-ecofriendly botao-caixa" data-menu="guia">
-            <h3 class="titulo-caixa">Guia EcoFriendly</h3>
-            <p>
+          <button data-menu="guia">Guia EcoFriendly</button>
+          <div class="caixa-guia-ecofriendly">
+            <div class="titulo-guia-ecofriendly">Guia EcoFriendly</div>
+            <p class="descricao-eco-guia">
               Dicas práticas para tornar sua rotina mais verde, com escolhas conscientes e hábitos sustentáveis.
             </p>
           </div>
@@ -64,9 +61,10 @@
 
         <!-- Grupo 3 -->
         <div class="grupo-menu">
-          <div class="caixa-ecocalculadora botao-caixa" data-menu="calculadora">
-            <h3 class="titulo-caixa">EcoCalculadora</h3>
-            <p>
+          <button data-menu="calculadora">EcoCalculadora</button>
+          <div class="caixa-ecocalculadora">
+            <div class="titulo-ecocalculadora">EcoCalculadora</div>
+            <p class="descricao-eco-calc">
               Descubra sua pegada ecológica e veja como pequenas mudanças podem gerar grandes impactos positivos.
             </p>
           </div>
@@ -74,14 +72,14 @@
 
         <!-- Grupo 4 -->
         <div class="grupo-menu">
-          <div class="caixa-ecodesafios botao-caixa" data-menu="desafios">
-            <h3 class="titulo-caixa">EcoDesafios</h3>
-            <p>
+          <button data-menu="desafios">EcoDesafios</button>
+          <div class="caixa-ecodesafios">
+            <div class="titulo-ecodesafios">EcoDesafios</div>
+            <p class="descricao-eco-desafios">
               Participe de desafios criativos que incentivam ações sustentáveis e engajamento com a natureza.
             </p>
           </div>
         </div>
-
       </div>
     </section>
 
@@ -90,18 +88,22 @@
 
   <script>
     document.addEventListener("DOMContentLoaded", () => {
-      document.querySelectorAll('.botao-caixa').forEach(caixa => {
-        caixa.addEventListener('click', () => {
-          const destino = caixa.getAttribute('data-menu');
+      document.querySelector('[data-menu="artigos"]').addEventListener('click', () => {
+        window.location.href = "ecoartigos.html";
+      });
 
-          if (destino === "artigos") window.location.href = "ecoartigos.html";
-          if (destino === "guia") window.location.href = "Guia.html";
-          if (destino === "calculadora") window.location.href = "Calculadora.html";
-          if (destino === "desafios") window.location.href = "Desafios.html";
-        });
+      document.querySelector('[data-menu="guia"]').addEventListener('click', () => {
+        window.location.href = "Guia.html";
+      });
+
+      document.querySelector('[data-menu="calculadora"]').addEventListener('click', () => {
+        window.location.href = "Calculadora.html";
+      });
+
+      document.querySelector('[data-menu="desafios"]').addEventListener('click', () => {
+        window.location.href = "Desafios.html";
       });
     });
   </script>
 </body>
-
 </html>
