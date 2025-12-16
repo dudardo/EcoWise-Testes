@@ -89,19 +89,19 @@
   <script>
     document.addEventListener("DOMContentLoaded", () => {
       document.querySelector('[data-menu="artigos"]').addEventListener('click', () => {
-        window.location.href = "ecoartigos.html";
+        window.location.href = "{{ url_for('ecoartigos') }}";
       });
 
       document.querySelector('[data-menu="guia"]').addEventListener('click', () => {
-        window.location.href = "Guia.html";
+        window.location.href = "{{ url_for('Guia') }}";
       });
 
       document.querySelector('[data-menu="calculadora"]').addEventListener('click', () => {
-        window.location.href = "Calculadora.html";
+        window.location.href = "{{ url_for('Calculadora') }}";
       });
 
       document.querySelector('[data-menu="desafios"]').addEventListener('click', () => {
-        window.location.href = "Desafios.html";
+        window.location.href = "{{ url_for('Desafios') }}";
       });
     });
   </script>
