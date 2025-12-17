@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <title>EcoArtigos</title>
-  <link rel="stylesheet" href="{{ url_for('static', filename='EcoC.css') }}>
+  <link rel="stylesheet" href="{{ url_for('static', filename='EcoC.css') }}">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
@@ -12,70 +12,54 @@
 
 <body>
 
-  <!-- parte superior, onde fica a logo -->
   <header class="header-fixo">
     <div class="interface">
       <div class="logo">
-        <a href="{{ url_for('EcoH') }}"] style="text-decoration: none; color: inherit;">
+        <a href="{{ url_for('EcoH') }}" style="text-decoration: none; color: inherit;">
           <h2>EcoWise 🌱</h2>
         </a>
       </div>
       <nav class="menu-desktop">
         <ul>
-          <li><a href="{{ url_for('Perfil') }}"]>Perfil</a></li>
-          <li><a href="{{ url_for('EcoMenu') }}"]>Voltar</a></li>
-          <li><a href="{{ url_for('EcoH') }}"]>Sair</a></li>
+          <li><a href="{{ url_for('Perfil') }}">Perfil</a></li>
+          <li><a href="{{ url_for('EcoMenu') }}">Voltar</a></li>
+          <li><a href="{{ url_for('EcoH') }}">Sair</a></li>
         </ul>
       </nav>
     </div>
   </header>
 
-  <!-- Conteúdo principal, botoes  -->
-
   <main>
-
-    <h1 class="titulo-ecomenuartigo">Você está no ecoartigos </h1>
+    <h1 class="titulo-ecomenuartigo">Você está no EcoArtigos</h1>
 
     <section class="eco-menu-art" id="ecoMenuArt">
       <div class="menu-conteudo-art">
 
-        <!-- Grupo 1: Reciclagem -->
         <div class="grupo-menu-art">
           <div class="caixa-reciclagem caixa-art botao-caixa-art" data-menu-art="reciclagemArt">
             <h3 class="titulo-art">Reciclagem</h3>
-            <p class="descricao-art">
-               Confira uma breve introdução sobre reciclagem: Reciclar é cuidar do planeta!
-            </p>
+            <p class="descricao-art">Reciclar é cuidar do planeta!</p>
           </div>
         </div>
 
-        <!-- Grupo 2: Alimentação Sustentável -->
         <div class="grupo-menu-art">
           <div class="caixa-alimentacao caixa-art botao-caixa-art" data-menu-art="alimentacaoArt">
             <h3 class="titulo-art">Alimentação Sustentável</h3>
-            <p class="descricao-art">
-               Confira uma breve introdução sobre alimentação Sustentável.
-            </p>
+            <p class="descricao-art">Confira uma breve introdução sobre alimentação sustentável.</p>
           </div>
         </div>
 
-        <!-- Grupo 3: Energias Renováveis -->
         <div class="grupo-menu-art">
           <div class="caixa-energia caixa-art botao-caixa-art" data-menu-art="energiaArt">
             <h3 class="titulo-art">Energias Renováveis</h3>
-            <p class="descricao-art">
-               Confira uma breve introdução sobre energias renováveis.
-            </p>
+            <p class="descricao-art">Confira uma breve introdução sobre energias renováveis.</p>
           </div>
         </div>
 
-        <!-- Grupo 4: Materiais Sustentáveis -->
         <div class="grupo-menu-art">
           <div class="caixa-pdfsSus caixa-art botao-caixa-art" data-menu-art="pdfsSusArt">
             <h3 class="titulo-art">Materiais Sustentáveis</h3>
-            <p class="descricao-art">
-              Acesse guias, cartilhas e documentos em PDF com informações sobre práticas sustentáveis.
-            </p>
+            <p class="descricao-art">Acesse guias e documentos em PDF.</p>
           </div>
         </div>
 
@@ -83,15 +67,17 @@
     </section>
   </main>
 
-
-
   <script>
     document.addEventListener("DOMContentLoaded", () => {
+      /* DICA IMPORTANTE: No Flask, o ideal é usar as rotas definidas no Python.
+         Abaixo, substitua os nomes entre aspas simples pelo nome da FUNÇÃO 
+         que você criou no seu app.py para cada página.
+      */
       const redirecionamentosArt = {
-        reciclagemArt: "ecoartigosReciclagem.html",
-        alimentacaoArt: "ecoartigosAlimentSus.html",
-        energiaArt: "ecoartigosEnergiaRen.html",
-        pdfsSusArt: "ecoartigospdfs.html"
+        reciclagemArt: "{{ url_for('ecoartigosReciclagem') }}",
+        alimentacaoArt: "{{ url_for('ecoartigosAlimentSus') }}",
+        energiaArt: "{{ url_for('ecoartigosEnergiaRen') }}",
+        pdfsSusArt: "{{ url_for('ecoartigospdfs') }}"
       };
 
       document.querySelectorAll(".botao-caixa-art").forEach(caixa => {

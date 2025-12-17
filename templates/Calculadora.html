@@ -4,17 +4,15 @@
 <head>
   <meta charset="UTF-8">
   <title>EcoCalculadora 🌱</title>
-  <link rel="stylesheet" href="{{ url_for('static', filename='EcoC.css') }}>
+  <link rel="stylesheet" href="{{ url_for('static', filename='EcoC.css') }}">
+  
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
-
-
 </head>
 
 <body>
 
-  <!-- parte superior, onde fica a logo -->
   <header class="header-fixo">
     <div class="interface">
       <div class="logo">
@@ -24,9 +22,9 @@
       </div>
       <nav class="menu-desktop">
         <ul>
-          <li><a href="Perfil.html">Perfil</a></li>
-          <li><a href="EcoMenu.html">Voltar</a></li>
-          <li><a href="EcoH.html">Sair</a></li>
+          <li><a href="{{ url_for('Perfil') }}">Perfil</a></li>
+          <li><a href="{{ url_for('EcoMenu') }}">Voltar</a></li>
+          <li><a href="{{ url_for('EcoH') }}">Sair</a></li>
         </ul>
       </nav>
     </div>
@@ -70,9 +68,7 @@
   <section class="info-pegada">
     <h2>Pegada de Carbono</h2>
     <p>
-      A pegada de carbono mede a quantidade de gases de efeito estufa emitidos por atividades humanas, direta ou
-      indiretamente.
-      Ela inclui fatores como transporte, alimentação, energia, consumo e resíduos.
+      A pegada de carbono mede a quantidade de gases de efeito estufa emitidos por atividades humanas...
     </p>
 
     <h3>Benefícios da Medição</h3>
@@ -97,8 +93,6 @@
     </ul>
   </section>
 
-
-
   <script>
     document.getElementById('calcForm').addEventListener('submit', e => {
       e.preventDefault();
@@ -113,17 +107,17 @@
       const alcool = +document.getElementById('alcool').value || 0;
 
       const emissaoTotal =
-        energia * 0.084 +
-        glp * 2.9 +
-        voosNac * 250 +
-        voosInt * 600 +
-        gásNatural * 0.05 +
-        diesel * 2.7 +
-        gasolina * 2.3 +
-        alcool * 1.5;
+        (energia * 0.084) +
+        (glp * 2.9) +
+        (voosNac * 250 / 12) + // Dividido por 12 para estimativa mensal
+        (voosInt * 600 / 12) + 
+        (gásNatural * 0.05) +
+        (diesel * 2.7) +
+        (gasolina * 2.3) +
+        (alcool * 1.5);
 
       const resultadoDiv = document.getElementById('calcResultado');
-      let sugestao = '', classe = '', icone = '';
+      let sugestao = '', icone = '';
 
       if (emissaoTotal >= 1500) {
         sugestao = 'Pegada alta 🌋<br><strong>Dica:</strong> Reduza o consumo de energia e transporte.';
@@ -142,9 +136,6 @@
       `;
       resultadoDiv.style.display = 'block';
     });
-
   </script>
-
 </body>
-
 </html>

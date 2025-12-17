@@ -9,11 +9,9 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
-
-  <!-- tela inicial -->
+</head>
 
 <body>
-  <!-- parte superior, onde fica a logo -->
   <header>
     <div class="interface">
       <div class="logo">
@@ -22,120 +20,67 @@
       <nav class="menu-desktop">
         <ul>
           <li><a href="#" id="btnAbrirSobre">Sobre</a></li>
-          <li><a href="#" id="btnLoginTopo">Login </a></li>
+          <li><a href="#" id="btnLoginTopo">Login</a></li>
         </ul>
       </nav>
     </div>
   </header>
 
-  <!-- boas vindas, parte princiapl -->
   <main>
     <div class="intro-fullscreen" id="intro">
       <h1>Bem-vindo ao EcoWise</h1>
-      <p>Transforme seu estilo de vida com práticas sustentáveis, calcule sua pegada de carbono e descubra como pequenas
-        mudanças fazem grande diferença no mundo.</p>
+      <p>Transforme seu estilo de vida com práticas sustentáveis, calcule sua pegada de carbono e descubra como pequenas mudanças fazem grande diferença no mundo.</p>
       <button class="btn-principal" id="btnAcessarPlataforma">Acessar Plataforma</button>
     </div>
 
-    <!-- caixas de informacoes, parte inferior -->
     <section id="informacoes" class="informacoes">
       <div class="interface">
         <div class="flex">
           <div class="info-caixa" style="background-color: #8fdcbbf0;">
             <div class="escrita">Sustentabilidade</div>
-            <p class="descricaosuste">Promovemos práticas ecológicas para reduzir impactos ambientais e incentivar um
-              futuro mais verde.
-            </p>
+            <p class="descricaosuste">Promovemos práticas ecológicas para reduzir impactos ambientais e incentivar um futuro mais verde.</p>
           </div>
           <div class="info-caixa" style="background-color: #8fdcbbf0;">
             <div class="escrita">Pegada de carbono</div>
-            <p class="descricaocarbo"> Descubra sua pegada ecológica e veja como pequenas mudanças no dia a dia podem
-              gerar grandes impactos positivos.</p>
+            <p class="descricaocarbo">Descubra sua pegada ecológica e veja como pequenas mudanças no dia a dia podem gerar grandes impactos positivos.</p>
           </div>
           <div class="info-caixa" style="background-color: #8fdcbbf0;">
             <div class="escrita">Mudanças Positivas</div>
-            <p class="descricaomudan">Celebramos atitudes conscientes que contribuem para a saúde do planeta e inspiram
-              uma vida mais sustentável.
-            </p>
+            <p class="descricaomudan">Celebramos atitudes conscientes que contribuem para a saúde do planeta e inspiram uma vida mais sustentável.</p>
           </div>
         </div>
       </div>
     </section>
   </main>
 
-
-  <!-- Overlay de "sobre", informacoes sobre o app -->
   <div class="overlay" id="overlaySobre"></div>
-
   <div class="form-sobrenos" id="modalSobre">
     <h2>Bem-vindo ao Ecowise</h2>
-    <p>Um espaço para quem quer viver em equilíbrio com o planeta. Aqui, você vai encontrar dicas práticas, conteúdos
-      educativos e desafios criativos para transformar seu dia a dia em ações reais a favor do meio ambiente.</p>
-    <p>Falamos sobre temas como:
+    <p>Um espaço para quem quer viver em equilíbrio com o planeta...</p>
     <ul class="lista-sustentavel">
       <li>Reciclagem consciente</li>
-      <li>Compostagem doméstica e comunitária</li>
+      <li>Compostagem doméstica</li>
       <li>Energias renováveis</li>
-      <li>Redução da pegada de carbono</li>
-      <li>Soluções e desafios sustentáveis</li>
     </ul>
-    </p>
-    <p>Nosso objetivo é simples: ajudar você a fazer a diferença com atitudes que cuidam da natureza e inspiram outras
-      pessoas.</p>
-    <p>Seja bem-vindo(a) à mudança. Vamos juntos nessa jornada!</p>
+    <p>Seja bem-vindo(a) à mudança!</p>
   </div>
 
-  <script>
-    const btnAbrirSobre = document.getElementById('btnAbrirSobre');
-    const modalSobre = document.getElementById('modalSobre');
-    const overlaySobre = document.getElementById('overlaySobre');
-    const btnFecharSobre = document.getElementById('btnFecharSobre');
-
-    // Abrir modal
-    btnAbrirSobre.addEventListener("click", (e) => {
-      e.preventDefault();
-      modalSobre.classList.add("active");
-      overlaySobre.classList.add("active");
-    });
-
-    // Fechar modal pelo botão
-    btnFecharSobre?.addEventListener("click", () => {
-      modalSobre.classList.remove("active");
-      overlaySobre.classList.remove("active");
-    });
-
-    // Fechar modal clicando no overlay
-    overlaySobre.addEventListener("click", () => {
-      modalSobre.classList.remove("active");
-      overlaySobre.classList.remove("active");
-    });
-  </script>
-
-
-
-
-
-  <!-- Overlay de login/cadastro-->
   <div class="overlay" id="overlay"></div>
 
-  <!-- Formulário Login/Cadastro -->
   <div class="form-popup" id="formPopup">
     <h2 id="tituloForm">Login</h2>
-    <form id="formUsuario">
-
-      <!-- Nome -->
+    <form id="formUsuario" method="POST" action="{{ url_for('login') }}">
+      
       <div id="campoNome" style="display:none;">
         <label for="nome">Nome completo:</label>
         <input type="text" id="nome" name="nome">
       </div>
 
-      <!-- Telefone -->
       <div id="campoTelefone" style="display:none;">
         <label for="telefone">Telefone:</label>
         <input type="tel" id="telefone" name="telefone" placeholder="(00) 00000-0000">
       </div>
 
-      <!-- Data de nascimento -->
       <div id="campoNascimento" style="display:none;">
         <label for="nascimento">Data de nascimento:</label>
         <input type="date" id="nascimento" name="nascimento">
@@ -147,7 +92,6 @@
       <label for="senha">Senha:</label>
       <input type="password" id="senha" name="senha" required>
 
-      <!-- Confirmar senha -->
       <div id="campoConfirmarSenha" style="display:none;">
         <label for="confirmarSenha">Confirmar senha:</label>
         <input type="password" id="confirmarSenha" name="confirmarSenha">
@@ -157,97 +101,87 @@
     </form>
 
     <div class="switch">
-      <span id="textoSwitch">Não tem conta? <a id="btnSwitchForm">Cadastre-se</a></span>
+      <span id="textoSwitch">Não tem conta? <a id="btnSwitchForm" style="cursor:pointer; color: #4CAF50; text-decoration: underline;">Cadastre-se</a></span>
     </div>
   </div>
 
-
-
   <script>
+    // Scripts do Modal Sobre
+    const btnAbrirSobre = document.getElementById('btnAbrirSobre');
+    const modalSobre = document.getElementById('modalSobre');
+    const overlaySobre = document.getElementById('overlaySobre');
+
+    btnAbrirSobre.addEventListener("click", (e) => {
+      e.preventDefault();
+      modalSobre.classList.add("active");
+      overlaySobre.classList.add("active");
+    });
+
+    overlaySobre.addEventListener("click", () => {
+      modalSobre.classList.remove("active");
+      overlaySobre.classList.remove("active");
+    });
+
+    // Scripts do Login/Cadastro
     const btnAbrirLogin = document.getElementById("btnLoginTopo");
     const formPopup = document.getElementById("formPopup");
     const overlay = document.getElementById("overlay");
     const btnSwitchForm = document.getElementById("btnSwitchForm");
     const tituloForm = document.getElementById("tituloForm");
-
-    const campoNome = document.getElementById("campoNome");
-    const campoTelefone = document.getElementById("campoTelefone");
-    const campoNascimento = document.getElementById("campoNascimento");
-    const campoConfirmarSenha = document.getElementById("campoConfirmarSenha");
-
-    const textoSwitch = document.getElementById("textoSwitch");
-    const btnEnviar = document.getElementById("btnEnviar");
     const formUsuario = document.getElementById("formUsuario");
 
-    // Abrir formulário
-    btnAbrirLogin.addEventListener("click", () => {
+    const camposCadastro = [
+      document.getElementById("campoNome"),
+      document.getElementById("campoTelefone"),
+      document.getElementById("campoNascimento"),
+      document.getElementById("campoConfirmarSenha")
+    ];
+
+    btnAbrirLogin.onclick = () => {
       formPopup.style.display = "block";
       overlay.style.display = "block";
-    });
+    };
 
-    // Alternar entre login e cadastro
-    btnSwitchForm.addEventListener("click", () => {
+    document.getElementById("btnAcessarPlataforma").onclick = () => {
+      formPopup.style.display = "block";
+      overlay.style.display = "block";
+    };
+
+    overlay.onclick = () => {
+      formPopup.style.display = "none";
+      overlay.style.display = "none";
+    };
+
+    btnSwitchForm.onclick = function alternar() {
       const isLogin = tituloForm.textContent === "Login";
-
+      
       if (isLogin) {
         tituloForm.textContent = "Cadastro";
-        campoNome.style.display = "block";
-        campoTelefone.style.display = "block";
-        campoNascimento.style.display = "block";
-        campoConfirmarSenha.style.display = "block";
-
-        btnEnviar.textContent = "Cadastrar";
-        textoSwitch.innerHTML = 'Já tem conta? <a id="btnSwitchForm">Login</a>';
+        formUsuario.action = "{{ url_for('cadastro') }}";
+        camposCadastro.forEach(c => c.style.display = "block");
+        document.getElementById("btnEnviar").textContent = "Cadastrar";
+        document.getElementById("textoSwitch").innerHTML = 'Já tem conta? <a id="btnSwitchForm" style="cursor:pointer; color: #4CAF50; text-decoration: underline;">Login</a>';
       } else {
         tituloForm.textContent = "Login";
-        campoNome.style.display = "none";
-        campoTelefone.style.display = "none";
-        campoNascimento.style.display = "none";
-        campoConfirmarSenha.style.display = "none";
-
-        btnEnviar.textContent = "Entrar";
-        textoSwitch.innerHTML = 'Não tem conta? <a id="btnSwitchForm">Cadastre-se</a>';
+        formUsuario.action = "{{ url_for('login') }}";
+        camposCadastro.forEach(c => c.style.display = "none");
+        document.getElementById("btnEnviar").textContent = "Entrar";
+        document.getElementById("textoSwitch").innerHTML = 'Não tem conta? <a id="btnSwitchForm" style="cursor:pointer; color: #4CAF50; text-decoration: underline;">Cadastre-se</a>';
       }
+      // Re-vincula o evento ao novo link criado pelo innerHTML
+      document.getElementById("btnSwitchForm").onclick = alternar;
+    };
 
-      // Reatribuir evento ao novo link
-      document.getElementById("btnSwitchForm").addEventListener("click", () => {
-        btnSwitchForm.click();
-      });
-    });
-
-    // Enviar formulário
-    formUsuario.addEventListener("submit", (e) => {
-      e.preventDefault();
-
-      // Validação simples de senha no cadastro
+    formUsuario.onsubmit = (e) => {
       if (tituloForm.textContent === "Cadastro") {
         const senha = document.getElementById("senha").value;
         const confirmar = document.getElementById("confirmarSenha").value;
-
         if (senha !== confirmar) {
+          e.preventDefault();
           alert("As senhas não coincidem");
-          return;
         }
       }
-
-      window.location.href ="{{ url_for('EcoMenu') }}"
-      ;
-    });
-
-    // Fechar formulário clicando no overlay
-    overlay.addEventListener("click", () => {
-      formPopup.style.display = "none";
-      overlay.style.display = "none";
-    });
-
-    // Botão da tela inicial abre formulário
-    document.getElementById("btnAcessarPlataforma").addEventListener("click", () => {
-      formPopup.style.display = "block";
-      overlay.style.display = "block";
-    });
-
+    };
   </script>
 </body>
-</head>
-
 </html>
