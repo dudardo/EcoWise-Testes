@@ -2,181 +2,143 @@
 <html lang="pt-BR">
 
 <head>
-    <meta charset="UTF-8">
-    <title>PDFs sustentáveis</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='EcoC.css') }}>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
-
-
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PDFs Sustentáveis</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='EcoC.css') }}">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 </head>
 
 <body>
 
-    <!-- parte superior, onde fica a logo -->
-    <header class="header-fixo">
-        <div class="interface">
-            <div class="logo">
-                <a href="{{ url_for('EcoH') }}"] style="text-decoration: none; color: inherit;">
-                    <h2>EcoWise 🌱</h2>
-                </a>
-            </div>
-            <nav class="menu-desktop">
-                <ul>
-                    <li><a href="{{ url_for('Perfil') }}"]>Perfil</a></li>
-                    <li><a href="{{ url_for('ecoartigos') }}"]>Voltar</a></li>
-                    <li><a href="{{ url_for('EcoH') }}"]>Sair</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
+  <header class="header-fixo">
+    <div class="interface">
+      <div class="logo">
+        <a href="{{ url_for('EcoH') }}" style="text-decoration: none; color: inherit;">
+          <h2>EcoWise 🌱</h2>
+        </a>
+      </div>
+      <nav class="menu-desktop">
+        <ul>
+          <li><a href="{{ url_for('Perfil') }}">Perfil</a></li>
+          <li><a href="{{ url_for('ecoartigos') }}">Voltar</a></li>
+          <li><a href="{{ url_for('sair') }}">Sair</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
 
-    <body>
-        <section class="ecoartigospdfs">
-            <h1>Documentos sobre Sustentabilidade</h1>
+  <section class="ecoartigospdfs">
+    <h1>Documentos sobre Sustentabilidade</h1>
 
-            <h2>Indicadores de sustentabilidade</h2>
-            <p>Discute indicadores de sustentabilidade com foco em ecologia, economia e resiliência dos sistemas.</p>
-            <p><a href="c:\Users\zxrag\Downloads\Artigo 3.pdf" target="_blank">Abrir PDF</a></p>
+    <h2>Indicadores de sustentabilidade</h2>
+    <p>Discute indicadores de sustentabilidade com foco em ecologia, economia e resiliência dos sistemas.</p>
+    <p><a href="/pdfs/Artigo 3.pdf" target="_blank">📄 Abrir PDF</a></p>
 
-            <h2>Entendendo o conceito de sustentabilidade nas organizações</h2>
-            <p>Explora como funcionários interpretam o conceito de sustentabilidade nas organizações e os fatores que
-                influenciam essa compreensão.</p>
-            <p><a href="c:\Users\zxrag\Downloads\Artigo 5.pdf" target="_blank">Abrir PDF</a></p>
+    <h2>Entendendo o conceito de sustentabilidade nas organizações</h2>
+    <p>Explora como funcionários interpretam o conceito de sustentabilidade nas organizações e os fatores que influenciam essa compreensão.</p>
+    <p><a href="/pdfs/art27.pdf" target="_blank">📄 Abrir PDF</a></p>
 
-            <h2>Educação ambiental e sustentabilidade</h2>
-            <p>Relaciona educação ambiental com sustentabilidade, destacando a importância da conscientização e da
-                formação
-                cidadã.</p>
-            <p><a href="c:\Users\zxrag\Downloads\artigo 4.pdf" target="_blank">Abrir PDF</a></p>
+    <h2>Educação ambiental e sustentabilidade</h2>
+    <p>Relaciona educação ambiental com sustentabilidade, destacando a importância da conscientização e da formação cidadã.</p>
+    <p><a href="/pdfs/artigo 4.pdf" target="_blank">📄 Abrir PDF</a></p>
 
-            <h2>Sustentabilidade: um novo paradigma para o direito</h2>
-            <p>Apresenta a sustentabilidade como um novo paradigma jurídico, integrando dimensões sociais, ambientais e
-                políticas.</p>
-            <p><a href="c:\Users\zxrag\Downloads\art30.pdf" target="_blank">Abrir PDF</a></p>
+    <h2>Sustentabilidade: um novo paradigma para o direito</h2>
+    <p>Apresenta a sustentabilidade como um novo paradigma jurídico, integrando dimensões sociais, ambientais e políticas.</p>
+    <p><a href="/pdfs/art30.pdf" target="_blank">📄 Abrir PDF</a></p>
 
-            <h2>Estratégia para construção de indicadores para avaliação da sustentabilidade e monitoramento de sistemas
-            </h2>
-            <p>Propõe uma estratégia participativa para construção de indicadores de sustentabilidade em sistemas
-                produtivos
-                rurais.</p>
-            <p><a href="c:\Users\zxrag\Downloads\art31.pdf" target="_blank">Abrir PDF</a></p>
+    <h2>Estratégia para construção de indicadores para avaliação da sustentabilidade e monitoramento de sistemas</h2>
+    <p>Propõe uma estratégia participativa para construção de indicadores de sustentabilidade em sistemas produtivos rurais.</p>
+    <p><a href="/pdfs/art31.pdf" target="_blank">📄 Abrir PDF</a></p>
 
-            <h2>Índices de sustentabilidade municipal: o desafio de mensurar</h2>
-            <p>Descreve metodologia para criação de índices de sustentabilidade municipal, com aplicação na bacia do
-                Piracicaba (MG).</p>
-            <p><a href="c:\Users\zxrag\Downloads\art29.pdf" target="_blank">Abrir PDF</a></p>
+    <h2>Índices de sustentabilidade municipal: o desafio de mensurar</h2>
+    <p>Descreve metodologia para criação de índices de sustentabilidade municipal, com aplicação na bacia do Piracicaba (MG).</p>
+    <p><a href="/pdfs/art29.pdf" target="_blank">📄 Abrir PDF</a></p>
 
-            <h2>Sustentabilidade social e desenvolvimento sustentável</h2>
-            <p>Foca na sustentabilidade social, apresentando indicadores ligados a recursos humanos, comunidades e
-                stakeholders.</p>
-            <p><a href="c:\Users\zxrag\Downloads\art28.pdf" target="_blank">Abrir PDF</a></p>
+    <h2>Sustentabilidade social e desenvolvimento sustentável</h2>
+    <p>Foca na sustentabilidade social, apresentando indicadores ligados a recursos humanos, comunidades e stakeholders.</p>
+    <p><a href="/pdfs/art28.pdf" target="_blank">📄 Abrir PDF</a></p>
 
-            <h2>O princípio da sustentabilidade como princípio estruturante do direito constitucional</h2>
-            <p>Analisa o princípio da sustentabilidade como estruturante do direito constitucional, com foco em Portugal
-                e
-                CPLP.</p>
-            <p><a href="c:\Users\zxrag\Downloads\art26.pdf" target="_blank">Abrir PDF</a></p>
+    <h2>O princípio da sustentabilidade como princípio estruturante do direito constitucional</h2>
+    <p>Analisa o princípio da sustentabilidade como estruturante do direito constitucional, com foco em Portugal e CPLP.</p>
+    <p><a href="/pdfs/art26.pdf" target="_blank">📄 Abrir PDF</a></p>
 
-            <h2>Sustentabilidade nas organizações: vantagens e desafios</h2>
-            <p>Analisa os benefícios e obstáculos da adoção de modelos sustentáveis nas empresas, com destaque para o
-                Triple
-                Bottom Line e indicadores como GRI, DJSI e ISE.</p>
-            <p><a href="c:\Users\zxrag\Downloads\art27.pdf" target="_blank">Abrir PDF</a></p>
+    <h2>Sustentabilidade nas organizações: vantagens e desafios</h2>
+    <p>Analisa os benefícios e obstáculos da adoção de modelos sustentáveis nas empresas, com destaque para o Triple Bottom Line e indicadores como GRI, DJSI e ISE.</p>
+    <p><a href="/pdfs/art25.pdf" target="_blank">📄 Abrir PDF</a></p>
 
-            <h2>A extensão universitária no Brasil, do assistencialismo à sustentabilidade</h2>
-            <p>Explora a evolução da extensão universitária no Brasil, destacando sua transição para práticas
-                sustentáveis e
-                cidadania ativa, com exemplos da Anhanguera Educacional.</p>
-            <p><a href="c:\Users\zxrag\Downloads\art25.pdf" target="_blank">Abrir PDF</a></p>
+    <h2>A extensão universitária no Brasil, do assistencialismo à sustentabilidade</h2>
+    <p>Explora a evolução da extensão universitária no Brasil, destacando sua transição para práticas sustentáveis e cidadania ativa, com exemplos da Anhanguera Educacional.</p>
+    <p><a href="/pdfs/art24.pdf" target="_blank">📄 Abrir PDF</a></p>
 
-            <h2>Inovação e sustentabilidade: novos modelos e proposições</h2>
-            <p>Discute a relação entre inovação e sustentabilidade sob a ótica da teoria institucional, propondo o
-                conceito
-                de organizações inovadoras sustentáveis.</p>
-            <p><a href="c:\Users\zxrag\Downloads\art24.pdf" target="_blank">Abrir PDF</a></p>
+    <h2>Inovação e sustentabilidade: novos modelos e proposições</h2>
+    <p>Discute a relação entre inovação e sustentabilidade sob a ótica da teoria institucional, propondo o conceito de organizações inovadoras sustentáveis.</p>
+    <p><a href="/pdfs/art22.pdf" target="_blank">📄 Abrir PDF</a></p>
 
-            <h2>Pedagogia da Terra e Cultura de Sustentabilidade</h2>
-            <p>Moacir Gadotti propõe uma ecopedagogia voltada à cidadania planetária, integrando educação, ética e
-                consciência ecológica como pilares da sustentabilidade.</p>
-            <p><a href="c:\Users\zxrag\Downloads\art22.pdf" target="_blank">Abrir PDF</a></p>
+    <h2>Pedagogia da Terra e Cultura de Sustentabilidade</h2>
+    <p>Moacir Gadotti propõe uma ecopedagogia voltada à cidadania planetária, integrando educação, ética e consciência ecológica como pilares da sustentabilidade.</p>
+    <p><a href="/pdfs/art22.pdf" target="_blank">📄 Abrir PDF</a></p>
 
-            <h2>O debate da sustentabilidade na sociedade insustentável</h2>
-            <p>Gustavo Lima analisa criticamente o modelo de desenvolvimento econômico e suas implicações ambientais,
-                propondo alternativas sustentáveis e classificações do pensamento ambientalista.</p>
-            <p><a href="c:\Users\zxrag\Downloads\art20.pdf" target="_blank">Abrir PDF</a></p>
+    <h2>O debate da sustentabilidade na sociedade insustentável</h2>
+    <p>Gustavo Lima analisa criticamente o modelo de desenvolvimento econômico e suas implicações ambientais, propondo alternativas sustentáveis e classificações do pensamento ambientalista.</p>
+    <p><a href="/pdfs/art20.pdf" target="_blank">📄 Abrir PDF</a></p>
 
-            <h2>Economia ou economia política da sustentabilidade?</h2>
-            <p>Ademar Romeiro compara abordagens da economia ambiental e ecológica, destacando o papel da ética, da
-                ciência
-                pós-normal e do princípio da precaução na sustentabilidade.</p>
-            <p><a href="c:\Users\zxrag\Downloads\art18.pdf" target="_blank">Abrir PDF</a></p>
+    <h2>Economia ou economia política da sustentabilidade?</h2>
+    <p>Ademar Romeiro compara abordagens da economia ambiental e ecológica, destacando o papel da ética, da ciência pós-normal e do princípio da precaução na sustentabilidade.</p>
+    <p><a href="/pdfs/art18.pdf" target="_blank">📄 Abrir PDF</a></p>
 
-            <h2>Sustentabilidade e Contabilidade</h2>
-            <p>Investiga o papel da contabilidade ambiental na identificação de gastos ecológicos, propondo o modelo
-                "Sistema Empresa Ecoeficiente" para mensurar impactos e resultados.</p>
-            <p><a href="c:\Users\zxrag\Downloads\art17.pdf" target="_blank">Abrir PDF</a></p>
+    <h2>Sustentabilidade e Contabilidade</h2>
+    <p>Investiga o papel da contabilidade ambiental na identificação de gastos ecológicos, propondo o modelo "Sistema Empresa Ecoeficiente" para mensurar impactos e resultados.</p>
+    <p><a href="/pdfs/art17.pdf" target="_blank">📄 Abrir PDF</a></p>
 
-            <h2>Competências para a sustentabilidade organizacional: uma revisão sistemática</h2>
-            <p>Revisão de estudos sobre competências organizacionais voltadas à sustentabilidade, com foco em
-                habilidades
-                estratégicas, sociais e ambientais para gestores e colaboradores.</p>
-            <p><a href="c:\Users\zxrag\Downloads\art16.pdf" target="_blank">Abrir PDF</a></p>
+    <h2>Competências para a sustentabilidade organizacional: uma revisão sistemática</h2>
+    <p>Revisão de estudos sobre competências organizacionais voltadas à sustentabilidade, com foco em habilidades estratégicas, sociais e ambientais para gestores e colaboradores.</p>
+    <p><a href="/pdfs/art16.pdf" target="_blank">📄 Abrir PDF</a></p>
 
-            <h2>Sustentabilidade em um mundo lotado</h2>
-            <p>Herman Daly propõe uma economia sustentável que respeite os limites físicos da biosfera, criticando o
-                crescimento econômico ilimitado e sugerindo ajustes estruturais em políticas públicas, consumo e
-                produção.
-            </p>
-            <p><a href="c:\Users\zxrag\Downloads\art15.pdf" target="_blank">Abrir PDF</a></p>
+    <h2>Sustentabilidade em um mundo lotado</h2>
+    <p>Herman Daly propõe uma economia sustentável que respeite os limites físicos da biosfera, criticando o crescimento econômico ilimitado e sugerindo ajustes estruturais em políticas públicas, consumo e produção.</p>
+    <p><a href="/pdfs/art15.pdf" target="_blank">📄 Abrir PDF</a></p>
 
-            <h2>Agricultura Familiar e Sustentabilidade</h2>
-            <p>José Eli da Veiga analisa a consolidação histórica da agricultura familiar e sua relevância na transição
-                agroambiental, destacando suas vantagens frente à agricultura patronal para práticas sustentáveis.</p>
-            <p><a href="c:\Users\zxrag\Downloads\art14.pdf" target="_blank">Abrir PDF</a></p>
+    <h2>Agricultura Familiar e Sustentabilidade</h2>
+    <p>José Eli da Veiga analisa a consolidação histórica da agricultura familiar e sua relevância na transição agroambiental, destacando suas vantagens frente à agricultura patronal para práticas sustentáveis.</p>
+    <p><a href="/pdfs/art14.pdf" target="_blank">📄 Abrir PDF</a></p>
 
-            <h2>Sustentabilidade: uma visão humanista</h2>
-            <p>Henrique Rattner propõe uma abordagem humanista da sustentabilidade, integrando dimensões sociais,
-                culturais,
-                políticas e econômicas, com foco na transformação institucional e na justiça social.</p>
-            <p><a href="c:\Users\zxrag\Downloads\art13.pdf" target="_blank">Abrir PDF</a></p>
+    <h2>Sustentabilidade: uma visão humanista</h2>
+    <p>Henrique Rattner propõe uma abordagem humanista da sustentabilidade, integrando dimensões sociais, culturais, políticas e econômicas, com foco na transformação institucional e na justiça social.</p>
+    <p><a href="/pdfs/art13.pdf" target="_blank">📄 Abrir PDF</a></p>
 
-            <h2>Sustentabilidade na Construção Civil</h2>
-            <p>Lasaro Corrêa apresenta práticas sustentáveis na construção civil, abordando desde o planejamento até o
-                reaproveitamento de materiais, com estudos de caso e princípios técnicos e sociais.</p>
-            <p><a href="c:\Users\zxrag\Downloads\art12.pdf" target="_blank">Abrir PDF</a></p>
+    <h2>Sustentabilidade na Construção Civil</h2>
+    <p>Lasaro Corrêa apresenta práticas sustentáveis na construção civil, abordando desde o planejamento até o reaproveitamento de materiais, com estudos de caso e princípios técnicos e sociais.</p>
+    <p><a href="/pdfs/art12.pdf" target="_blank">📄 Abrir PDF</a></p>
 
-            <h2>Agricultura e Sustentabilidade: contexto, desafios e cenários</h2>
-            <p>Assad e Almeida discutem os desafios da agricultura sustentável no Brasil, analisando o papel da
-                agricultura
-                familiar, os impactos do agronegócio e propondo cenários para a transição sustentável.</p>
-            <p><a href="c:\Users\zxrag\Downloads\art11.pdf" target="_blank">Abrir PDF</a></p>
+    <h2>Agricultura e Sustentabilidade: contexto, desafios e cenários</h2>
+    <p>Assad e Almeida discutem os desafios da agricultura sustentável no Brasil, analisando o papel da agricultura familiar, os impactos do agronegócio e propondo cenários para a transição sustentável.</p>
+    <p><a href="/pdfs/art11.pdf" target="_blank">📄 Abrir PDF</a></p>
 
-            <h2>Análise Multidimensional da Sustentabilidade</h2>
-            <p>Caporal e Costabeber propõem uma metodologia de análise da sustentabilidade a partir da Agroecologia, com
-                seis dimensões: ecológica, econômica, social, cultural, política e ética.</p>
-            <p><a href="c:\Users\zxrag\Downloads\art10.pdf" target="_blank">Abrir PDF</a></p>
+    <h2>Análise Multidimensional da Sustentabilidade</h2>
+    <p>Caporal e Costabeber propõem uma metodologia de análise da sustentabilidade a partir da Agroecologia, com seis dimensões: ecológica, econômica, social, cultural, política e ética.</p>
+    <p><a href="/pdfs/art10.pdf" target="_blank">📄 Abrir PDF</a></p>
 
-            <h2>Sistema de Gestão Ambiental, P+L e Ecodesign</h2>
-            <p>Apresenta conceitos e práticas de gestão ambiental, como ISO 14000, Produção Mais Limpa e Ecodesign,
-                destacando benefícios, barreiras e estratégias para implementação em organizações públicas e privadas.
-            </p>
-            <p><a href="c:\Users\zxrag\Downloads\art9.pdf" target="_blank">Abrir PDF</a></p>
+    <h2>Sistema de Gestão Ambiental, P+L e Ecodesign</h2>
+    <p>Apresenta conceitos e práticas de gestão ambiental, como ISO 14000, Produção Mais Limpa e Ecodesign, destacando benefícios, barreiras e estratégias para implementação em organizações públicas e privadas.</p>
+    <p><a href="/pdfs/art9.pdf" target="_blank">📄 Abrir PDF</a></p>
 
-            <h2>Dimensões da Sustentabilidade</h2>
-            <p>Jefferson Mendes explora sete dimensões da sustentabilidade: ecológica, econômica, social, territorial,
-                cultural, política e psicológica, propondo um novo paradigma de desenvolvimento humano e ambiental.</p>
-            <p><a href="c:\Users\zxrag\Downloads\art8.pdf" target="_blank">Abrir PDF</a></p>
+    <h2>Dimensões da Sustentabilidade</h2>
+    <p>Jefferson Mendes explora sete dimensões da sustentabilidade: ecológica, econômica, social, territorial, cultural, política e psicológica, propondo um novo paradigma de desenvolvimento humano e ambiental.</p>
+    <p><a href="/pdfs/art8.pdf" target="_blank">📄 Abrir PDF</a></p>
 
-            <h2>Meio Ambiente e Sustentabilidade</h2>
-            <p>Pedro Jacobi analisa o conceito de desenvolvimento sustentável e sua evolução, destacando o
-                ecodesenvolvimento e suas cinco dimensões: social, econômica, ecológica, espacial e cultural. O texto
-                também
-                aborda os desafios urbanos e a importância da educação ambiental e da participação cidadã.</p>
-            <p><a href="c:\Users\zxrag\Downloads\Artigo1Sutentabilidade.pdf" target="_blank">Abrir PDF</a></p>
+    <h2>Meio Ambiente e Sustentabilidade</h2>
+    <p>Pedro Jacobi analisa o conceito de desenvolvimento sustentável e sua evolução, destacando o ecodesenvolvimento e suas cinco dimensões: social, econômica, ecológica, espacial e cultural. O texto também aborda os desafios urbanos e a importância da educação ambiental e da participação cidadã.</p>
+    <p><a href="/pdfs/Artigo1Sustentabilidade.pdf" target="_blank">📄 Abrir PDF</a></p>
 
-        </section>
-    </body>
+    <h2>Educação para a Sustentabilidade Global</h2>
+    <p>Explora programas educacionais que integram sustentabilidade nas escolas e universidades, promovendo conscientização ambiental e responsabilidade social entre alunos e docentes.</p>
+    <p><a href="/pdfs/Artigo 5.pdf" target="_blank">📄 Abrir PDF</a></p>
+
+  </section>
+
+</body>
 
 </html>

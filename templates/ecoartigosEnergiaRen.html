@@ -23,7 +23,7 @@
         <ul>
           <li><a href="{{ url_for('Perfil') }}">Perfil</a></li>
           <li><a href="{{ url_for('ecoartigos') }}">Voltar</a></li>
-          <li><a href="{{ url_for('EcoH') }}">Sair</a></li>
+          <li><a href="{{ url_for('sair') }}">Sair</a></li>
         </ul>
       </nav>
     </div>
@@ -48,11 +48,11 @@
         </ul>
       </div>
 
-      <img src="img/hidreletrica.jpg" alt="Usina Hidrelétrica" class="hidre-img">
+      <img src="{{ url_for('static', filename='img/hidreletrica.jpg') }}" alt="Usina Hidrelétrica" class="hidre-img">
     </div>
 
     <div class="eolica-container">
-      <img src="img/eolica.jpg" alt="Energia Eólica" class="eolica-img">
+      <img src="{{ url_for('static', filename='img/eolica.jpg') }}" alt="Energia Eólica" class="eolica-img">
 
       <div class="eolica-texto">
         <h3>1.2 Eólica</h3>
@@ -76,7 +76,7 @@
         </ul>
       </div>
 
-      <img src="img/solar.jpg" alt="Energia Solar" class="solar-img">
+      <img src="{{ url_for('static', filename='img/solar.jpg') }}" alt="Energia Solar" class="solar-img">
     </div>
 
     <h3>Referências</h3>

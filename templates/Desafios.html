@@ -22,7 +22,7 @@
         <ul>
           <li><a href="{{ url_for('Perfil') }}">Perfil</a></li>
           <li><a href="{{ url_for('EcoMenu') }}">Voltar</a></li>
-          <li><a href="{{ url_for('EcoH') }}">Sair</a></li>
+          <li><a href="{{ url_for('sair') }}">Sair</a></li>
         </ul>
       </nav>
     </div>
@@ -129,7 +129,7 @@
       return `Missão Sustentável da Semana ${i + 1}`;
     }
 
-    function carregarSemana() {
+    async function carregarSemana() {
       checklistForm.innerHTML = "";
       tituloSemana.textContent = `Semana ${semanaAtual + 1}: ${obterTituloSemana(semanaAtual)}`;
 
@@ -139,6 +139,20 @@
         label.innerHTML = `<input type="checkbox" ${marcado ? "checked" : ""}> ${texto}`;
         checklistForm.appendChild(label);
       });
+
+      // Carregar estado salvo do servidor
+      try {
+        const resp = await fetch(`/api/desafios/${semanaAtual}`);
+        if (resp.ok) {
+          const data = await resp.json();
+          const feitos = data.feitos || [];
+          checklistForm.querySelectorAll("input").forEach((input, i) => {
+            input.checked = feitos.includes(i);
+          });
+        }
+      } catch (err) {
+        console.warn('Erro ao carregar estado do servidor', err);
+      }
 
       atualizarProgresso();
     }
@@ -161,6 +175,21 @@
       progressoSemanas[semanaAtual] = [...checks].map((c, i) => c.checked ? i : null).filter(i => i !== null);
       localStorage.setItem("progressoSemanas", JSON.stringify(progressoSemanas));
       localStorage.setItem("semanaAtual", semanaAtual);
+    }
+
+    let salvarTimeout = null;
+    async function salvarEstado() {
+      try {
+        const checks = [...checklistForm.querySelectorAll("input")];
+        const feitos = checks.map((c, i) => c.checked ? i : null).filter(i => i !== null);
+        await fetch('/api/desafios', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ semana: semanaAtual, feitos })
+        });
+      } catch (err) {
+        console.warn('Erro ao salvar estado', err);
+      }
     }
 
     function atualizarCronograma() {
@@ -219,7 +248,11 @@
       cronogramaDesafios.style.display = "block";
     };
 
-    checklistForm.addEventListener("change", atualizarProgresso);
+    checklistForm.addEventListener("change", () => {
+      atualizarProgresso();
+      clearTimeout(salvarTimeout);
+      salvarTimeout = setTimeout(salvarEstado, 600);
+    });
 
     carregarSemana();
   </script>
