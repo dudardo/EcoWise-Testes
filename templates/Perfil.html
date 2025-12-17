@@ -6,6 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>EcoWise - Perfil</title>
   <link rel="stylesheet" href="{{ url_for('static', filename='EcoC.css') }}">
+  <link rel="icon" href="{{ url_for('static', filename='img/favicon.png') }}" type="image/png">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 </head>
 
@@ -43,7 +44,7 @@
             <li><strong>Email:</strong> {{ usuario.email }}</li>
             <li><strong>Idade:</strong> {{ idade if idade is not none else '—' }}</li>
             <li><strong>Telefone:</strong> {{ usuario.telefone or '—' }}</li>
-            <li><strong>Progresso Sustentável:</strong> {{ progresso_percent }}%</li>
+          
             <li><strong>Desafios concluídos:</strong> {{ desafios_concluidos }}</li>
             
           </ul>
